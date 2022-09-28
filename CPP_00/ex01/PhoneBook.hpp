@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:30:10 by lrandria          #+#    #+#             */
-/*   Updated: 2022/09/27 15:17:50 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/09/28 19:27:14 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ public:
 
 private:
 	void			_addInfo(std::string msg, std::string input);
+	bool			_isOnlySpaces(std::string input);
 	unsigned int	_nbContacts;
 	Contact 		_tabContact[MAX_CONTACTS];
 };
