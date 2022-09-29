@@ -6,15 +6,24 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:27:40 by lrandria          #+#    #+#             */
-/*   Updated: 2022/09/27 16:57:00 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:41:07 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp" 
 
-Contact::Contact(void){
+Contact::Contact(std::string str1,
+				 std::string str2,
+				 std::string str3,
+				 std::string str4,
+				 std::string str5): _firstName(str1),
+				 					_lastName(str2),
+									_nickName(str3),
+									_number(str4),
+									_secret(str5)
+{
 
-	return;
+	return ;
 }
 
 Contact::~Contact(void) {
@@ -45,29 +54,4 @@ std::string Contact::getNumber() const {
 std::string Contact::getSecret() const {
 
 	return (this->_secret);
-}
-
-void	Contact::setFirstName(std::string input) {
-
-	this->_firstName = input;
-}
-
-void	Contact::setLastName(std::string input) {
-
-	this->_lastName = input;
-}
-
-void	Contact::setNickName(std::string input) {
-
-	this->_nickName = input;
-}
-
-void	Contact::setNumber(std::string input) {
-
-	this->_number = input;
-}
-
-void	Contact::setSecret(std::string input) {
-
-	this->_secret = input;
 }

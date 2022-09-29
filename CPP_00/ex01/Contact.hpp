@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:27:45 by lrandria          #+#    #+#             */
-/*   Updated: 2022/09/27 15:13:18 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:54:51 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@
 class Contact {
 
 public:
-	Contact(void);
+	Contact(std::string str1,
+			std::string str2,
+			std::string str3,
+			std::string str4,
+			std::string str5);
 	~Contact(void);
 
-	void 					setFirstName(std::string input);
-	void 					setLastName(std::string input);
-	void 					setNickName(std::string input);
-	void 					setNumber(std::string input);
-	void 					setSecret(std::string input);
 	std::string 			getFirstName() const;
 	std::string 			getLastName() const;
 	std::string 			getNickName() const;

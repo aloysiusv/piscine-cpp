@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:27:34 by lrandria          #+#    #+#             */
-/*   Updated: 2022/09/28 19:41:30 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:49:49 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 	PhoneBook		pbook;
 	std::string		input;
 
-	ft_message("👽 Greetings, human. 👽");
+	ft_message("👽 Greetings 👽");
 	ft_message("You can ADD, SEARCH or EXIT");
 	while (1)
 	{
@@ -29,7 +29,7 @@ int	main(void)
 			// 	pbook.searchContact();
 			else if (input == "EXIT")
 			{
-				ft_message("... Farewell, human. 🛸");
+				ft_message("... Farewell 🛸");
 				return (EXIT_SUCCESS);
 			}
 		}
