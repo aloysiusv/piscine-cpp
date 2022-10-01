@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:54:11 by lrandria          #+#    #+#             */
-/*   Updated: 2022/09/15 17:18:48 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/01 00:21:35 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	ft_shoutback(int ac, char *av[])
 		j = 0;
 		while (av[i][j])
 			std::cout << (char)std::toupper(av[i][j++]);
-		// if (i != ac - 1)
-		// 	std::cout << " ";
 	}
 }
 

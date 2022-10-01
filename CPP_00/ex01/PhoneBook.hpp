@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:30:10 by lrandria          #+#    #+#             */
-/*   Updated: 2022/09/29 14:49:41 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/01 02:34:24 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,23 @@
 
 # include "Contact.hpp"
 
-# define MAX_CONTACTS 8
-
 class PhoneBook {
 
 public:
-	PhoneBook(void);
-	~PhoneBook(void);
+	PhoneBook();
+	~PhoneBook();
 
-	void	addContact();
-	// void	searchContact();
-	// void	displayContact();
+	void			addContact();
+	void			searchContact();
+	void			displayOne();
+	void			displayAll();
 
 private:
 	void			_addInfo(std::string msg, std::string input);
 	unsigned int	_nbContacts;
-	Contact 		_tabContact[MAX_CONTACTS];
+	Contact 		_tabContact[8];
 };
+
+
 
 #endif

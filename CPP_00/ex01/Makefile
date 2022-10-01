@@ -6,7 +6,7 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 09:52:47 by lrandria          #+#    #+#              #
-#    Updated: 2022/09/29 14:51:17 by lrandria         ###   ########.fr        #
+#    Updated: 2022/10/01 03:59:51 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,12 @@ CC			= c++
 
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
-HDR			= PhoneBookAdd.hpp		\
-			  PhoneBookSearch.hpp	\
+HDR			= PhoneBook.hpp			\
 			  Contact.hpp			\
-			  utils.hpp 			\
+			  colours.h				\
 
-SRCS		= PhoneBookAdd.cpp 		\
-			  PhoneBookSearch.cpp	\
+SRCS		= PhoneBook.cpp 		\
 			  Contact.cpp			\
-			  utils.cpp 			\
 			  main.cpp				\
 
 OBJS		= $(SRCS:.cpp=.o)
