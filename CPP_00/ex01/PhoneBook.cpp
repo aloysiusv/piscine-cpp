@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:30:24 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/01 09:05:06 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/01 13:39:42 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,22 @@ std::string	retrieveInfo(std::string const query) {
 		std::cout << std::endl;
 		retrieveInfo(query);
 	}
-	if (input == INDEX && input.size() > 9) {
-
-		input = "";
-		retrieveInfo(query); 
-	}
-	else if (input != INDEX && input.size() > 10)
+	if (input != INDEX && input.size() > 10)
 		input = input.substr(0, 9) + "."; 
 	return (input);
 }
 
 void PhoneBook::addContact() {
 
+	unsigned int	i = 0;
+
 	std::cout << std::endl;
 	if (this->_nbContacts == 8) {
 		std::cout << "Bye bye oldest contact! New one incoming!" << std::endl;
-		this->_nbContacts = 0;
+		i = 0;
+	}
+	else {
+		i = this->_nbContacts;
 	}
 	this->_tabContact[this->_nbContacts % 8].setFirstName(retrieveInfo(FIRSTNAME));
 	std::cout << std::endl;
@@ -101,18 +101,34 @@ void PhoneBook::displayAll() {
 
 void PhoneBook::displayOne() {
 
-	long	idx = stol(retrieveInfo(INDEX));
-	if (sscanf(retrieveInfo(INDEX).c_str(), "%ld", &idx) == -1) {}
-	if (idx < 0 || idx > 7 || idx == this->_nbContacts)
-		displayOne();
-	else {
-		std::cout << std::endl;
-		std::cout << V_GREEN "INDEX: " RESET << this->_tabContact[idx].getIndex() << std::endl;
-		std::cout << V_GREEN "FIRST NAME: " RESET << this->_tabContact[idx].getFirstName() << std::endl;
-		std::cout << V_GREEN "LAST NAME: " RESET << this->_tabContact[idx].getLastName() << std::endl;
-		std::cout << V_GREEN "NICKNAME: " RESET << this->_tabContact[idx].getNickName() << std::endl;
-		std::cout << std::endl;
+	// long	idx = strtol(retrieveInfo(INDEX).c_str(), NULL, 10);
+	// std::cout << idx << '\n';
+	// if (idx < 0 || idx > 7 || idx > (this->_nbContacts - 1)) {
+	// 	std::cout << "MDR\n";
+	// 	displayOne();
+	// }
+	int	index, max;
+	std::string	input = retrieveInfo(INDEX);
+
+	if (sscanf(input.c_str(), "%d", &index) == -1) {}
+	if (this->_nbContacts > 8)
+		max = 8;
+	else 
+		max = this->_nbContacts - 1;
+	while (!std::cin.eof() && (index < 0 || index >= max)) {
+		input = retrieveInfo(INDEX);
+		if (sscanf(input.c_str(), "%d", &index) == -1) {}
 	}
+	if (std::cin.eof()) {
+		system("clear");
+		return ;
+	}
+	std::cout << std::endl;
+	std::cout << V_GREEN "INDEX: " RESET << this->_tabContact[index].getIndex() << std::endl;
+	std::cout << V_GREEN "FIRST NAME: " RESET << this->_tabContact[index].getFirstName() << std::endl;
+	std::cout << V_GREEN "LAST NAME: " RESET << this->_tabContact[index].getLastName() << std::endl;
+	std::cout << V_GREEN "NICKNAME: " RESET << this->_tabContact[index].getNickName() << std::endl;
+	std::cout << std::endl;
 }
 
 void PhoneBook::searchContact() {
