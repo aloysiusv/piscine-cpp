@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:30:10 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/01 02:34:24 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/02 18:08:33 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ public:
 
 	void			addContact();
 	void			searchContact();
-	void			displayOne();
+	void			displayOne(unsigned int index);
 	void			displayAll();
 
 private:
-	void			_addInfo(std::string msg, std::string input);
+	std::string		_takeUserInput(std::string const query);
 	unsigned int	_nbContacts;
 	Contact 		_tabContact[8];
 };

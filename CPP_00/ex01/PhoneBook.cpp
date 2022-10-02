@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:30:24 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/01 13:39:42 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/02 18:23:11 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ PhoneBook::~PhoneBook() {
 	return;
 }
 
-std::string	retrieveInfo(std::string const query) {
+std::string	PhoneBook::_takeUserInput(std::string const query) {
 
 	std::string	input;
 
@@ -35,15 +35,16 @@ std::string	retrieveInfo(std::string const query) {
 		system("clear");
 		return (NULL);
 	}
-	else if (input == "" 
+	else if (input == ""
 			|| input.find_first_not_of("\t\v\f\n\r ") == input.npos
 			|| query == NUMBER && input.find_first_not_of("+0123456789") != input.npos
-			|| query == INDEX  && input.find_first_not_of("01234567") != input.npos) { 
-		std::cout << std::endl;
-		retrieveInfo(query);
+			|| query == INDEX && (input.size() > 1 || input.find_first_not_of("+0123456789") != input.npos)) { 
+		this->_takeUserInput(query);
 	}
 	if (input != INDEX && input.size() > 10)
 		input = input.substr(0, 9) + "."; 
+	if (input == INDEX)
+		displayOne(stoi(input));
 	return (input);
 }
 
@@ -59,15 +60,15 @@ void PhoneBook::addContact() {
 	else {
 		i = this->_nbContacts;
 	}
-	this->_tabContact[this->_nbContacts % 8].setFirstName(retrieveInfo(FIRSTNAME));
+	this->_tabContact[this->_nbContacts % 8].setFirstName(this->_takeUserInput(FIRSTNAME));
 	std::cout << std::endl;
-	this->_tabContact[this->_nbContacts % 8].setLastName(retrieveInfo(LASTNAME));
+	this->_tabContact[this->_nbContacts % 8].setLastName(this->_takeUserInput(LASTNAME));
 	std::cout << std::endl;
-	this->_tabContact[this->_nbContacts % 8].setNickName(retrieveInfo(NICKNAME));
+	this->_tabContact[this->_nbContacts % 8].setNickName(this->_takeUserInput(NICKNAME));
 	std::cout << std::endl;
-	this->_tabContact[this->_nbContacts % 8].setNumber(retrieveInfo(NUMBER));
+	this->_tabContact[this->_nbContacts % 8].setNumber(this->_takeUserInput(NUMBER));
 	std::cout << std::endl;
-	this->_tabContact[this->_nbContacts % 8].setSecret(retrieveInfo(SECRET));
+	this->_tabContact[this->_nbContacts % 8].setSecret(this->_takeUserInput(SECRET));
 	std::cout << std::endl;
 	this->_tabContact[this->_nbContacts % 8].setIndex(this->_nbContacts);
 	this->_nbContacts++;
@@ -99,39 +100,22 @@ void PhoneBook::displayAll() {
 	return ;
 }
 
-void PhoneBook::displayOne() {
+void PhoneBook::displayOne(unsigned int index) {
 
-	// long	idx = strtol(retrieveInfo(INDEX).c_str(), NULL, 10);
-	// std::cout << idx << '\n';
-	// if (idx < 0 || idx > 7 || idx > (this->_nbContacts - 1)) {
-	// 	std::cout << "MDR\n";
-	// 	displayOne();
-	// }
-	int	index, max;
-	std::string	input = retrieveInfo(INDEX);
-
-	if (sscanf(input.c_str(), "%d", &index) == -1) {}
-	if (this->_nbContacts > 8)
-		max = 8;
-	else 
-		max = this->_nbContacts - 1;
-	while (!std::cin.eof() && (index < 0 || index >= max)) {
-		input = retrieveInfo(INDEX);
-		if (sscanf(input.c_str(), "%d", &index) == -1) {}
-	}
-	if (std::cin.eof()) {
-		system("clear");
-		return ;
-	}
-	std::cout << std::endl;
-	std::cout << V_GREEN "INDEX: " RESET << this->_tabContact[index].getIndex() << std::endl;
+	std::cout << std::endl << V_GREEN "INDEX: " RESET << this->_tabContact[index].getIndex() << std::endl;
 	std::cout << V_GREEN "FIRST NAME: " RESET << this->_tabContact[index].getFirstName() << std::endl;
 	std::cout << V_GREEN "LAST NAME: " RESET << this->_tabContact[index].getLastName() << std::endl;
 	std::cout << V_GREEN "NICKNAME: " RESET << this->_tabContact[index].getNickName() << std::endl;
+	std::cout << V_GREEN "NUMBER: " RESET << this->_tabContact[index].getNumber() << std::endl;
+	std::cout << V_GREEN "SECRET: " RESET << this->_tabContact[index].getSecret() << std::endl;
 	std::cout << std::endl;
+	return ;
 }
 
 void PhoneBook::searchContact() {
+
+	int 		index;
+	std::string input;
 
 	std::cout << std::endl;
 	if (this->_nbContacts == 0) {
@@ -141,6 +125,9 @@ void PhoneBook::searchContact() {
 		return ;
 	}
 	this->displayAll();
-	this->displayOne();
+	input = this->_takeUserInput(INDEX);
+	index = std::stoi(input);
+	if (!(index > this->_nbContacts))
+		this->displayOne(index);
 	return ;
 }
