@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Account.cpp                                        :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 08:11:59 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/04 22:45:15 by lrandria         ###   ########.fr       */
+/*   Created: 2022/10/05 00:14:42 by lrandria          #+#    #+#             */
+/*   Updated: 2022/10/05 01:10:48 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <vector>
-#include <algorithm>
-#include <functional>
-#include "Account.hpp"
+# include <iostream>
+# include <iomanip>
+# include <cctype>
+# include <string>
+# include <cstdio>
+# include <stdlib.h>
+# include "colours.h"
 
-Account::Account(int initial_deposit) {
+class Zombie {
 
+public:
+    Zombie();
+    ~Zombie();
+
+    Zombie* newZombie(std::string name);
+    void    randomChump(std::string name);
+    void    announce(void);
+
+private:
+    std::string _name;
 }
-
-Account::~Account(void) { return; }

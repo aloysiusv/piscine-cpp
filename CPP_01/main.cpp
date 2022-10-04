@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Account.cpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 08:11:59 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/04 22:45:15 by lrandria         ###   ########.fr       */
+/*   Created: 2022/10/05 00:12:12 by lrandria          #+#    #+#             */
+/*   Updated: 2022/10/05 00:14:33 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <vector>
-#include <algorithm>
-#include <functional>
-#include "Account.hpp"
+#include "Zombie.hpp"
 
-Account::Account(int initial_deposit) {
-
+int main(void)
+{
+    
+    return (EXIT_SUCCESS)
 }
-
-Account::~Account(void) { return; }

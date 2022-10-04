@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Account.cpp                                        :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 08:11:59 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/04 22:45:15 by lrandria         ###   ########.fr       */
+/*   Created: 2022/10/05 01:08:03 by lrandria          #+#    #+#             */
+/*   Updated: 2022/10/05 01:11:58 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <vector>
-#include <algorithm>
-#include <functional>
-#include "Account.hpp"
+#include "Zombie.hpp"
 
-Account::Account(int initial_deposit) {
+void    Zombie::announce(void) {
 
+    std::cout << _name << ": " <<  
 }
-
-Account::~Account(void) { return; }

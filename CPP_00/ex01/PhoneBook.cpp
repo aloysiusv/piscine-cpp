@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:30:24 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/04 13:51:39 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/05 00:06:22 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ std::string	truncate(std::string input) {
 void PhoneBook::displayOne(int index) {
 
 	std::cout << std::endl;
-	std::cout << V_GREEN "INDEX: " RESET
-			  << index << std::endl;
 	std::cout << V_GREEN "FIRST NAME: " RESET
 			  << _tabContact[index].getInfo(FIRSTNAME) << std::endl;
 	std::cout << V_GREEN "LAST NAME: " RESET
@@ -54,9 +52,7 @@ void PhoneBook::displayAll() {
 	std::right << std::setw(10) << "          " << "|" <<
 	std::right << std::setw(10) << "         " << "|" <<
 	std::right << std::setw(10) << std::endl;
-	if (_nbContacts == 8)
-		i = 0;
-	while (i < _nbContacts) {
+	while (i < 8) {
 
 		std::cout << std::right << std::setw(10) << i << "|";
 		std::cout << std::right << std::setw(10) << truncate(_tabContact[i].getInfo(FIRSTNAME)) << "|";
@@ -67,6 +63,14 @@ void PhoneBook::displayAll() {
 	std::cout << std::endl;
 }
 
+bool	hasNonAscii(std::string input) {
+
+	for (int i = 0; input[i]; i++)
+		if (isprint(input[i]) == 0)
+			return (true);
+	return (false);
+}
+
 void	PhoneBook::_takeUserInput(int mode, std::string &input) {
 
 	std::cout << std::endl << D_GREEN << tabQuery[mode] << RESET;
@@ -75,8 +79,10 @@ void	PhoneBook::_takeUserInput(int mode, std::string &input) {
 		system("clear");
 		return;
 	}
-	if (input == "" || input.find_first_not_of("\t\v\f\n\r ") == input.npos
-					|| (mode == NUM && input.find_first_not_of("+0123456789") != input.npos)) {
+	if (input == "" || hasNonAscii(input) == true
+					|| input.find_first_not_of("\t\v\f\n\r ") == input.npos
+					|| (mode == NUM && input.find_first_not_of("+0123456789") != input.npos)
+					|| (mode == IDX && input.find_first_not_of("01234567") != input.npos)) {
 		_takeUserInput(mode, input);
 	}
 }
