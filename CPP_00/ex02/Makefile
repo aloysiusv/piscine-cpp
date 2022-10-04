@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/14 09:52:47 by lrandria          #+#    #+#              #
-#    Updated: 2022/10/04 13:03:44 by lrandria         ###   ########.fr        #
+#    Created: 2022/10/04 08:00:08 by lrandria          #+#    #+#              #
+#    Updated: 2022/10/04 08:12:41 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,26 +14,22 @@ NAME		= phonebook
 
 CC			= c++
 
-FLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 
-HDR			= PhoneBook.hpp			\
-			  Contact.hpp			\
-			  colours.h				\
-			  messages.h			\
+HDR			= Account.hpp	\
 
-SRCS		= PhoneBook.cpp 		\
-			  Contact.cpp			\
-			  main.cpp				\
+SRCS		= Account.cpp 	\
+			  tests.cpp		\
 
 OBJS		= $(SRCS:.cpp=.o)
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o:		%.cpp $(HDR)
-			$(CC) $(FLAGS) -c -o $@ $<
+			$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
 			rm -rf $(OBJS)

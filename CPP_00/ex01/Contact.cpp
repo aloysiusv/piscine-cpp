@@ -6,83 +6,59 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:27:40 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/01 01:14:59 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/04 06:01:15 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp" 
 
-Contact::Contact(void) {
+Contact::Contact(void) { return; }
 
-	this->setFirstName("");
-	this->setLastName("");
-	this->setNickName("");
-	this->setNumber("");
-	this->setSecret("");
-	return ;
-}
-
-Contact::~Contact(void) {
-
-	return;
-}
+Contact::~Contact(void) { return; }
  
-void	Contact::setFirstName(std::string str1) {
+void	Contact::setInfo(int mode, std::string input) {
 
-	this->_firstName = str1;
+    switch (mode) {
+
+        case FIRSTNAME:
+            _firstName = input;
+            break;
+        case LASTNAME:
+            _lastName = input;
+            break;
+        case NICKNAME:
+            _nickName = input;
+            break;
+        case NUM:
+            _number = input;
+            break;
+        case SECRET:
+            _secret = input;
+            break;
+    
+        default:
+            break;
+    }
+
 }
 
-void	Contact::setLastName(std::string str2) {
+std::string	Contact::getInfo(int mode) {
 
-	this->_lastName = str2;
-}
+    switch (mode) {
 
-void	Contact::setNickName(std::string str3) {
-
-	this->_nickName = str3;
-}
-
-void	Contact::setNumber(std::string str4) {
-
-	this->_number = str4;
-}
-
-void	Contact::setSecret(std::string str5) {
-
-	this->_secret = str5;
-}
-
-void	Contact::setIndex(unsigned int idx) {
-
-	this->_index = idx;
-}
-
-std::string	Contact::getFirstName() const {
-
-	return (this->_firstName);
-}
-
-std::string	Contact::getLastName() const {
-
-	return (this->_lastName);
-}
-
-std::string	Contact::getNickName() const {
-
-	return (this->_nickName);
-}
-
-std::string	Contact::getNumber() const {
-
-	return (this->_number);
-}
-
-std::string	Contact::getSecret() const {
-
-	return (this->_secret);
-}
-
-unsigned int	Contact::getIndex() const {
-
-	return (this->_index);
+        case FIRSTNAME:
+            return (_firstName);
+        case LASTNAME:
+            return (_lastName);
+        case NICKNAME:
+            return (_nickName);
+        case NUM:
+            return (_number);
+        case SECRET:
+            return (_secret);
+    
+        default:
+            break;
+    }
+    return (NULL);
 }
