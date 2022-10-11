@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 00:14:42 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/05 01:10:48 by lrandria         ###   ########.fr       */
+/*   Created: 2022/10/11 16:16:00 by lrandria          #+#    #+#             */
+/*   Updated: 2022/10/11 16:41:05 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <iostream>
-# include <iomanip>
-# include <cctype>
-# include <string>
-# include <cstdio>
-# include <stdlib.h>
-# include "colours.h"
+#include "Zombie.hpp"
 
-class Zombie {
-
-public:
-    Zombie();
-    ~Zombie();
-
-    Zombie* newZombie(std::string name);
-    void    randomChump(std::string name);
-    void    announce(void);
-
-private:
-    std::string _name;
+int main(void)
+{
+	Zombie*	my_horde = zombieHorde(10, "Bibou");
+	for (int i = 0; i < 10; i++)
+		my_horde[i].announce();
+	delete [] my_horde;
+	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 09:52:47 by lrandria          #+#    #+#              #
-#    Updated: 2022/10/05 00:10:56 by lrandria         ###   ########.fr        #
+#    Updated: 2022/10/10 23:07:42 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,6 @@ HDR			= Zombie.hpp			\
 			  colours.h				\
 
 SRCS		= Zombie.cpp 			\
-			  newZombie.cpp			\
-			  randomChump.cpp		\
 			  main.cpp				\
 
 OBJS		= $(SRCS:.cpp=.o)

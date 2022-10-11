@@ -5,31 +5,33 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/04 08:00:08 by lrandria          #+#    #+#              #
-#    Updated: 2022/10/10 14:59:40 by lrandria         ###   ########.fr        #
+#    Created: 2022/09/14 09:52:47 by lrandria          #+#    #+#              #
+#    Updated: 2022/10/11 16:17:01 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= account
+NAME		= mOore_braiiiiiiinnnzzzZ
 
 CC			= c++
 
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
-HDR			= Account.hpp	\
+HDR			= Zombie.hpp			\
+			  colours.h				\
 
-SRCS		= Account.cpp 	\
-			  tests.cpp		\
+SRCS		= Zombie.cpp 			\
+			  zombieHorde.cpp		\
+			  main.cpp				\
 
 OBJS		= $(SRCS:.cpp=.o)
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+			$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 %.o:		%.cpp $(HDR)
-			$(CC) $(CFLAGS) -c -o $@ $<
+			$(CC) $(FLAGS) -c -o $@ $<
 
 clean:
 			rm -rf $(OBJS)
