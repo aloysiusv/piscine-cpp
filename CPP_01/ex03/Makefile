@@ -6,11 +6,11 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 16:42:16 by lrandria          #+#    #+#              #
-#    Updated: 2022/10/11 18:18:49 by lrandria         ###   ########.fr        #
+#    Updated: 2022/10/13 17:06:23 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= bonjouricilecerveau
+NAME		= violenceinutile
 
 CC			= c++
 

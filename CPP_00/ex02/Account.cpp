@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 08:11:59 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/10 20:24:14 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:40:27 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ Account::Account(int initial_deposit) {
 	_totalAmount += initial_deposit;
 }
 
-Account::~Account(void) { 
+Account::~Account() { 
 	
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";"
@@ -59,7 +59,7 @@ Account::~Account(void) {
 	_nbAccounts--;
 }
 
-void	Account::displayAccountsInfos(void) {
+void	Account::displayAccountsInfos() {
 
 	_displayTimestamp();
 	std::cout << "accounts:" << _nbAccounts << ";"
@@ -68,7 +68,7 @@ void	Account::displayAccountsInfos(void) {
 			  << "withdrawals:" << _totalNbWithdrawals << std::endl;	
 }
 
-void	Account::displayStatus (void) const {
+void	Account::displayStatus() const {
 
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";"

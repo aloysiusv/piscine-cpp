@@ -6,15 +6,15 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:30:24 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/05 00:06:22 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:39:30 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() { _nbContacts = 0; return; }
+PhoneBook::PhoneBook() { _nbContacts = 0; }
 
-PhoneBook::~PhoneBook() { return; }
+PhoneBook::~PhoneBook() {}
 
 std::string	truncate(std::string input) {
 

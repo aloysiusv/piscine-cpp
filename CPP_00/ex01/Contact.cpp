@@ -6,15 +6,15 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:27:40 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/04 06:01:15 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:39:12 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp" 
 
-Contact::Contact(void) { return; }
+Contact::Contact() {}
 
-Contact::~Contact(void) { return; }
+Contact::~Contact() {}
  
 void	Contact::setInfo(int mode, std::string input) {
 
