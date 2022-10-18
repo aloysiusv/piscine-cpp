@@ -6,25 +6,19 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 16:42:16 by lrandria          #+#    #+#              #
-#    Updated: 2022/10/18 18:10:36 by lrandria         ###   ########.fr        #
+#    Updated: 2022/10/18 18:14:22 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= unnecessaryviolence
+NAME		= sedisforlosers
 
 CC			= c++
 
 FLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
-HDR			= colours.h  \
-			  HumanA.hpp \
-			  HumanB.hpp \
-			  Weapon.hpp \
+HDR			= colours.h		\
 
-SRCS		= main.cpp	 \
-			  HumanA.cpp \
-			  HumanB.cpp \
-			  Weapon.cpp \
+SRCS		= main.cpp	 	\
 
 OBJS		= $(SRCS:.cpp=.o)
 
