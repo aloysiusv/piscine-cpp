@@ -6,7 +6,7 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 16:42:16 by lrandria          #+#    #+#              #
-#    Updated: 2022/10/18 18:14:22 by lrandria         ###   ########.fr        #
+#    Updated: 2022/10/19 09:12:13 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,10 @@ CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 HDR			= colours.h		\
+			  MyReplace.hpp \
 
 SRCS		= main.cpp	 	\
+			  MyReplace.cpp \
 
 OBJS		= $(SRCS:.cpp=.o)
 
