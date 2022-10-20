@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:30:24 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/13 16:39:30 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/20 23:27:49 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ std::string	truncate(std::string input) {
 
 void PhoneBook::displayOne(int index) {
 
-	std::cout << std::endl;
-	std::cout << V_GREEN "FIRST NAME: " RESET
-			  << _tabContact[index].getInfo(FIRSTNAME) << std::endl;
-	std::cout << V_GREEN "LAST NAME: " RESET
-			  << _tabContact[index].getInfo(LASTNAME) << std::endl;
-	std::cout << V_GREEN "NICKNAME: " RESET
-			  << _tabContact[index].getInfo(NICKNAME) << std::endl;
-	std::cout << V_GREEN "NUMBER: " RESET
-			  << _tabContact[index].getInfo(NUM) << std::endl;
-	std::cout << V_GREEN "SECRET: " RESET
-			  << _tabContact[index].getInfo(SECRET) << std::endl;
-	std::cout << std::endl;
+	std::cout << std::endl
+			  << V_GREEN "FIRST NAME: " RESET
+			  << _tabContact[index].getInfo(FIRSTNAME) << std::endl
+			  << V_GREEN "LAST NAME: " RESET
+			  << _tabContact[index].getInfo(LASTNAME) << std::endl
+			  << V_GREEN "NICKNAME: " RESET
+			  << _tabContact[index].getInfo(NICKNAME) << std::endl
+			  << V_GREEN "NUMBER: " RESET
+			  << _tabContact[index].getInfo(NUM) << std::endl
+			  << V_GREEN "SECRET: " RESET
+			  << _tabContact[index].getInfo(SECRET) << std::endl
+			  << std::endl;
 	funBook("STALKER");
 }
 
@@ -45,19 +45,19 @@ void PhoneBook::displayAll() {
 	int	i = 0;
 
 	std::cout << std::right << std::setw(10) << "index" << "|" <<
-	std::right << std::setw(10) << "first name" << "|" <<
-	std::right << std::setw(10) << "last name" << "|" <<
-	std::right << std::setw(10) << "nickname" << std::endl;
+				 std::right << std::setw(10) << "first name" << "|" <<
+				 std::right << std::setw(10) << "last name" << "|" <<
+				 std::right << std::setw(10) << "nickname" << std::endl;
 	std::cout << std::right << std::setw(10) << "      " << "|" <<
-	std::right << std::setw(10) << "          " << "|" <<
-	std::right << std::setw(10) << "         " << "|" <<
-	std::right << std::setw(10) << std::endl;
+				 std::right << std::setw(10) << "          " << "|" <<
+				 std::right << std::setw(10) << "         " << "|" <<
+				 std::right << std::setw(10) << std::endl;
 	while (i < 8) {
 
-		std::cout << std::right << std::setw(10) << i << "|";
-		std::cout << std::right << std::setw(10) << truncate(_tabContact[i].getInfo(FIRSTNAME)) << "|";
-		std::cout << std::right << std::setw(10) << truncate(_tabContact[i].getInfo(LASTNAME)) << "|";
-		std::cout << std::right << std::setw(10) << truncate(_tabContact[i].getInfo(NICKNAME)) << std::endl;
+		std::cout << std::right << std::setw(10) << i << "|"
+				  << std::right << std::setw(10) << truncate(_tabContact[i].getInfo(FIRSTNAME)) << "|"
+				  << std::right << std::setw(10) << truncate(_tabContact[i].getInfo(LASTNAME)) << "|"
+				  << std::right << std::setw(10) << truncate(_tabContact[i].getInfo(NICKNAME)) << std::endl;
 		i++;
 	}
 	std::cout << std::endl;

@@ -5,20 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/11 16:42:16 by lrandria          #+#    #+#              #
-#    Updated: 2022/10/20 15:22:57 by lrandria         ###   ########.fr        #
+#    Created: 2022/09/14 09:52:47 by lrandria          #+#    #+#              #
+#    Updated: 2022/10/21 00:29:25 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= sedisforlosers
+NAME		= claptrap
 
 CC			= c++
 
 FLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 HDR			= colours.h		\
+			  ClapTrap.hpp	\
 
-SRCS		= main.cpp	 	\
+SRCS		= ClapTrap.cpp 	\
+			  main.cpp		\
 
 OBJS		= $(SRCS:.cpp=.o)
 

@@ -6,51 +6,68 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 18:16:40 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/19 09:24:26 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:33:36 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Replace.hpp"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
 
-// std::string	getFile(int ac, char *av[]) {
+static void replace(std::string toFind, std::string toUse,
+					std::ifstream* infile, std::ofstream* outfile) {
 
-// 	std::ifstream		infile(av[1]);
-// 	std::string			content = "";
+	std::size_t	i;
+	std::string	line;
+	
+	while ((*infile).eof() == false) {
+		std::getline(*infile, line);
+		i = line.find(toFind);
+		while (i != std::string::npos) {
+			line.erase(i, toFind.length());
+			line.insert(i, toUse);			
+			i = line.find(toFind); }
+		*outfile << line;
+		if (!(*infile).eof())
+			*outfile << std::endl; }		
+}
 
-// 	if (ac != 4)
-// 		isError("invalid number of arguments");
-// 	
-// 	infile.close();
-// 	return (content)
-// }
+static void	openFiles(std::string fileName,
+						std::ifstream* infile, std::ofstream* outfile) {
 
-// void	isError(std::string msg) {
+	std::string		newName = fileName + ".replace";
+	
+	(*infile).open(fileName.c_str());
+	if (!(*infile).is_open()) {
+		std::cerr << "error: couldn't open file" << std::endl;
+		std::exit(1); }
+	(*outfile).open(newName.c_str());
+	if (!(*outfile).is_open()) {
+		std::cerr << "error: couldn't open file" << std::endl;
+		(*infile).close();
+		std::exit(1); }
+}
 
-// 	std::cerr << "error: " << msg << std::endl;
-// 	exit(1);
-// }
-
-void	checkArgs(int ac, char *av[]) {
+static void	checkArgs(int ac, char *av[]) {
 
 	if (ac != 4) { 
 		std::cerr << "error: invalid number of arguments" << std::endl;
-		std::exit(1);
-	}
-	if (av[1] == "" || av[2] == "" || av[3] == "" || av[2] == av[3]) {
+		std::exit(1); }
+	if (av[1] == NULL || av[2] == NULL || av[3] == NULL || av[2] == av[3]) {
 		std::cerr << "error: invalid arguments" << std::endl;
-		std::exit(1);
-	}
+		std::exit(1); }
 }
 
 int main(int ac, char *av[]) {
 
-	MyReplace	x;
+	std::ifstream	infile;
+	std::ofstream	outfile;
 
 	checkArgs(ac, av);
-	x.setInfile(av[1]);
-	file = getFile(ac, av);
-	if (file == "")
-		isError("cannot open file");
-	std::cout << file << std::endl;
+	openFiles(av[1], &infile, &outfile);
+	replace(av[2], av[3], &infile, &outfile);
+	infile.close();
 	outfile.close();
+	return (EXIT_SUCCESS);
 }
