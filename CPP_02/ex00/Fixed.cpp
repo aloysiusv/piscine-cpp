@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:58:54 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/20 21:25:04 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/21 01:44:31 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Fixed::~Fixed() {
 	std::cout << RED "Destructor called" RESET << std::endl;
 }
 
-Fixed & Fixed::operator=(const Fixed &instance) {
+Fixed	&Fixed::operator=(const Fixed &instance) {
 
 	std::cout << BLUE "Copy assignment operator called" RESET << std::endl;
 	_rawBits = instance.getRawBits();
