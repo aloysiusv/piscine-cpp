@@ -6,15 +6,15 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:58:54 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/20 23:29:19 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/26 10:44:03 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed &Fixed::operator=(Fixed const &instance) {
+Fixed &Fixed::operator=(Fixed const &rhs) {
 
-	_rawBits = instance._rawBits;
+	_rawBits = rhs._rawBits;
 	return (*this);
 }
 

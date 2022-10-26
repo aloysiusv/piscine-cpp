@@ -6,7 +6,7 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 18:08:55 by lrandria          #+#    #+#              #
-#    Updated: 2022/10/20 23:31:48 by lrandria         ###   ########.fr        #
+#    Updated: 2022/10/26 10:57:13 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		= fixed2.0
 
 CC			= c++
 
-FLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 HDR			= colours.h				\
 			  Fixed.hpp				\

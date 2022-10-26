@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:58:57 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/20 23:24:31 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/26 10:55:58 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ class	Fixed {
 		static Fixed const	&min(Fixed const &a, Fixed const &b);
 		static Fixed		&max(Fixed &a, Fixed &b);
 		static Fixed const	&max(Fixed const &a, Fixed const &b);
-
 
 	private:
 		int					_rawBits;
