@@ -6,11 +6,11 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 09:52:47 by lrandria          #+#    #+#              #
-#    Updated: 2022/10/28 12:16:11 by lrandria         ###   ########.fr        #
+#    Updated: 2022/10/28 12:15:58 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= ClapTrap
+NAME		= ScavTrap
 
 CC			= c++
 

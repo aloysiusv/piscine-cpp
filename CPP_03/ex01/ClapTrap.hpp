@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 00:30:20 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/28 12:18:40 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:13:19 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class ClapTrap {
 
 		void			setAttackDmg(unsigned amount);
 
-	protected:
+	private:
 		std::string		_name;
 		unsigned int 	_hitPts;
 		unsigned int 	_energyPts;
