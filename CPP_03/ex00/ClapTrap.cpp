@@ -6,29 +6,34 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 00:30:06 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/28 12:14:03 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/28 18:07:24 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() {}
+ClapTrap::ClapTrap():_name("default"), 
+					 _hitPts(0),
+					 _energyPts(0), 
+					 _attackDmg(0) {
+	std::cout << BLUE << _name << " constructor called!\n" RESET;
+}
 
 ClapTrap::ClapTrap(std::string name): _name(name),
 									  _hitPts(10),
 									  _energyPts(10),
 									  _attackDmg(0) {
-	std::cout << BLUE << "Constructor!\n" RESET;
+	std::cout << BLUE << _name << " constructor called!\n" RESET;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src) {
 
-	std::cout << BLUE << "Copy constructor!\n" RESET;
+	std::cout << BLUE << _name << " copy constructor called!\n" RESET;
 	*this = src;
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << RED << "Destructor!\n" RESET;
+	std::cout << RED << _name << " destructor!\n" RESET;
 }
 
 ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs) {
@@ -37,6 +42,7 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs) {
 	_hitPts = rhs._hitPts;
 	_energyPts = rhs._energyPts;
 	_attackDmg = rhs._attackDmg;
+	std::cout << BLUE << _name << " assignment operator called!\n" RESET;
 	return (*this);
 }
 

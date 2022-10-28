@@ -6,16 +6,17 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:16:00 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/28 12:06:34 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/28 19:35:30 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main(void)
-{
+int main(void) {
+
 	ClapTrap	russia("Vladi");
 	ClapTrap	china("Xixi");
+	ScavTrap	murica("Bibi");
 
 	russia.setAttackDmg(6);
 	russia.attack("Xixi");
@@ -24,5 +25,7 @@ int main(void)
 	china.setAttackDmg(12);
 	china.attack("Vladi");
 	russia.takeDamage(12);
+	murica.attack("Vladi and Xixi");
+	murica.guardGate();
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 09:52:47 by lrandria          #+#    #+#              #
-#    Updated: 2022/10/28 12:15:58 by lrandria         ###   ########.fr        #
+#    Updated: 2022/10/28 19:37:55 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,10 @@ FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 HDR			= colours.h		\
 			  ClapTrap.hpp	\
+			  ScavTrap.hpp	\
 
 SRCS		= ClapTrap.cpp 	\
+			  ScavTrap.cpp 	\
 			  main.cpp		\
 
 OBJS		= $(SRCS:.cpp=.o)

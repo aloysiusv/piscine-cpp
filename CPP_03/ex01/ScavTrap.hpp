@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:16:59 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/28 12:22:46 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/10/28 18:07:39 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class ScavTrap: public ClapTrap {
 		ScavTrap		&operator=(ScavTrap const &rhs);
 
 		void 			guardGate();
-
 };
 
 #endif
