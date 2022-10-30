@@ -3,27 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: SvenSvn <SvenSvn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:16:56 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/30 15:53:14 by SvenSvn          ###   ########.fr       */
+/*   Updated: 2022/10/30 16:44:57 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() {
-
-	_name = "default";
-	_hitPts = 0;
-	_energyPts = 0;
-	_attackDmg = 0;
+ScavTrap::ScavTrap() : ClapTrap() {
 	std::cout << BLUE << _name << " ScavTrap constructor!\n" RESET;
 }
 
-ScavTrap::ScavTrap(std::string name) {
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 
-	_name = name;
 	_hitPts = 100;
 	_energyPts = 50;
 	_attackDmg = 20;

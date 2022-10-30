@@ -1,13 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 08:10:57 by SvenSvn           #+#    #+#             */
-/*   Updated: 2022/10/30 16:49:51 by lrandria         ###   ########.fr       */
+/*   Created: 2022/10/30 08:13:25 by SvenSvn           #+#    #+#             */
+/*   Updated: 2022/10/30 17:44:12 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
+
+# include "ClapTrap.hpp"
+
+class FragTrap: virtual public ClapTrap {
+
+	public:
+		FragTrap();
+		FragTrap(std::string name);
+		FragTrap(FragTrap const &src);
+		~FragTrap();
+
+		FragTrap		&operator=(FragTrap const &rhs);
+
+		void 			highFiveGuys();
+};
+
+#endif

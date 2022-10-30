@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: SvenSvn <SvenSvn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:16:00 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/30 15:54:08 by SvenSvn          ###   ########.fr       */
+/*   Updated: 2022/10/30 16:47:09 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
 
 int main(void) {
 
-	ClapTrap	russia("Vladi");
-	ScavTrap	murica("Bibi");
+	DiamondTrap	russia("Vladi");
+	ClapTrap	murica("Bibi");
 
 	russia.setAttackDmg(6);
 	russia.attack("Bibi");
