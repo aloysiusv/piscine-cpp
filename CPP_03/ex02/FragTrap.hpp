@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: SvenSvn <SvenSvn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 16:16:00 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/30 14:56:57 by SvenSvn          ###   ########.fr       */
+/*   Created: 2022/10/30 08:13:25 by SvenSvn           #+#    #+#             */
+/*   Updated: 2022/10/30 15:47:12 by SvenSvn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-int main(void) {
+# include "ClapTrap.hpp"
 
-	ClapTrap	russia("Vladi");
-	ScavTrap	murica("Bibi");
-	ScavTrap	france(murica);
+class FragTrap: public ClapTrap {
 
-	russia.setAttackDmg(6);
-	russia.attack("Bibi");
-	murica.takeDamage(6);
-	murica.beRepaired(2);
-	murica.attack("Vladi");
-	russia.takeDamage(12);
-	murica.guardGate();
-	france.guardGate();
-	return (EXIT_SUCCESS);
-}
+	public:
+		FragTrap();
+		FragTrap(std::string name);
+		FragTrap(FragTrap const &src);
+		~FragTrap();
+
+		FragTrap		&operator=(FragTrap const &rhs);
+
+		void 			highFiveGuys();
+};
+
+#endif

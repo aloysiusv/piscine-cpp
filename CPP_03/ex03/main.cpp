@@ -6,28 +6,25 @@
 /*   By: SvenSvn <SvenSvn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:16:00 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/30 08:54:25 by SvenSvn          ###   ########.fr       */
+/*   Updated: 2022/10/30 15:54:08 by SvenSvn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-int main(void)
-{
+int main(void) {
+
 	ClapTrap	russia("Vladi");
-	ClapTrap	china("Xixi");
-	ClapTrap	chechnya1("Ramzy");
-	ClapTrap	chechnya2(russia);
+	ScavTrap	murica("Bibi");
 
-	chechnya1 = russia;
-	chechnya1.beRepaired(1);
-	chechnya2.beRepaired(2);
 	russia.setAttackDmg(6);
-	russia.attack("Xixi");
-	china.takeDamage(6);
-	china.beRepaired(2);
-	china.setAttackDmg(12);
-	china.attack("Vladi");
+	russia.attack("Bibi");
+	murica.takeDamage(6);
+	murica.beRepaired(2);
+	murica.attack("Vladi");
 	russia.takeDamage(12);
+	murica.guardGate();
 	return (EXIT_SUCCESS);
 }
