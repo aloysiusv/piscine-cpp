@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:33:22 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 17:19:56 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/01 18:08:08 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include <cstdlib>
 # include "colours.h"
+# include "Brain.hpp"
 
 class Animal {
     

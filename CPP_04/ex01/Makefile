@@ -6,15 +6,15 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 16:58:26 by lrandria          #+#    #+#              #
-#    Updated: 2022/11/01 17:22:56 by lrandria         ###   ########.fr        #
+#    Updated: 2022/11/01 19:03:22 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Polymorphism
+NAME		=	idontwanttosettheworldonfire
 
 CC			=	c++
 
-FLAGS		=	-Wall -Wextra -Werror -MMD -MP
+FLAGS		=	-Wall -Wextra -Werror -MMD -MP -g3
 
 INC			=	inc/colours.h 			\
 				inc/Animal.hpp			\
@@ -22,6 +22,7 @@ INC			=	inc/colours.h 			\
 				inc/Dog.hpp				\
 				inc/WrongAnimal.hpp		\
 				inc/WrongCat.hpp		\
+				inc/Brain.hpp			\
 
 SRCS		=	main.cpp 				\
 				Animal.cpp				\
@@ -29,6 +30,7 @@ SRCS		=	main.cpp 				\
 				Dog.cpp					\
 				WrongAnimal.cpp			\
 				WrongCat.cpp			\
+				Brain.cpp				\
 
 OBJS		:=	$(addprefix ./objs/,$(SRCS:%.cpp=%.o))
 DEP			=	$(addprefix ./objs/,$(OBJS:%.o=%.d))

@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 16:33:22 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 17:19:56 by lrandria         ###   ########.fr       */
+/*   Created: 2022/11/01 21:03:34 by lrandria          #+#    #+#             */
+/*   Updated: 2022/11/01 21:56:22 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 # include <iostream>
 # include <string>
 # include <cstdlib>
 # include "colours.h"
+# include "Brain.hpp"
 
-class Animal {
+class AAnimal {
     
     public:
-        Animal();
-        Animal(const std::string type);
-        Animal(Animal const &src);
-        virtual ~Animal();
+        AAnimal();
+        AAnimal(const std::string type);
+        AAnimal(AAnimal const &src);
+        virtual ~AAnimal();
         
-        Animal                  &operator=(Animal const &rhs);
+        AAnimal                  &operator=(AAnimal const &rhs);
 
         std::string const       getType() const;
-        virtual void            makeSound() const;
+        virtual void            makeSound() const = 0;
 
     protected:
         std::string             type;

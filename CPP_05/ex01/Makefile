@@ -6,29 +6,23 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 16:58:26 by lrandria          #+#    #+#              #
-#    Updated: 2022/11/01 17:22:56 by lrandria         ###   ########.fr        #
+#    Updated: 2022/11/02 13:37:44 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Polymorphism
+NAME		=	getinlineyouworms
 
 CC			=	c++
 
-FLAGS		=	-Wall -Wextra -Werror -MMD -MP
+FLAGS		=	-Wall -Wextra -Werror -MMD -MP -g3
 
 INC			=	inc/colours.h 			\
-				inc/Animal.hpp			\
-				inc/Cat.hpp				\
-				inc/Dog.hpp				\
-				inc/WrongAnimal.hpp		\
-				inc/WrongCat.hpp		\
+				inc/Bureaucrat.hpp		\
+				inc/Form.hpp			\
 
 SRCS		=	main.cpp 				\
-				Animal.cpp				\
-				Cat.cpp					\
-				Dog.cpp					\
-				WrongAnimal.cpp			\
-				WrongCat.cpp			\
+				Bureaucrat.cpp			\
+				Form.cpp				\
 
 OBJS		:=	$(addprefix ./objs/,$(SRCS:%.cpp=%.o))
 DEP			=	$(addprefix ./objs/,$(OBJS:%.o=%.d))

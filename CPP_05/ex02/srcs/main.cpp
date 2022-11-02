@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 17:19:33 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 17:19:25 by lrandria         ###   ########.fr       */
+/*   Created: 2022/11/02 12:33:48 by lrandria          #+#    #+#             */
+/*   Updated: 2022/11/02 12:34:14 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "../inc/Bureaucrat.hpp"
 
-# include "Animal.hpp"
+int main(void) {
 
-class Dog : public Animal {
-    
-    public:
-        Dog();
-        Dog(Dog const &src);
-        virtual ~Dog();
-
-        Dog             &operator=(Dog const &rhs);
-        
-        virtual void    makeSound() const;
-};
-
-#endif
+	
+	return (EXIT_SUCCESS);
+}

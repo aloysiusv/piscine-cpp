@@ -6,18 +6,18 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:42:05 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 19:10:29 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/01 19:09:30 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Animal.hpp"
 
 Animal::Animal() : type("Animal") {
-    std::cout << BLUE << "Animal default constructor called!\n" RESET;
+    std::cout << BLUE << type << " default constructor called!\n" RESET;
 }
 
 Animal::Animal(const std::string type) : type(type) {
-    std::cout << BLUE << "Animal parameterised constructor called!\n" RESET;
+    std::cout << BLUE <<  "Animal parameterised constructor called!\n" RESET;
 }
 
 Animal::Animal(Animal const &src) {

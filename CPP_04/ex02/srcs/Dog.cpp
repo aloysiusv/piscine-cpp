@@ -6,23 +6,27 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:31:49 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 17:11:00 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/01 21:05:47 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Dog.hpp"
 
-Dog::Dog() : Animal("Dog") {
+Dog::Dog() : AAnimal("Dog") {
+
+    _dogBrain = new Brain;
     std::cout << BLUE << type << " default constructor called!\n" RESET;
 }
 
-Dog::Dog(Dog const &src) : Animal(src) {
+Dog::Dog(Dog const &src) : AAnimal(src) {
     
     std::cout << BLUE << type << " copy constructor called!\n" RESET;
     *this = src;
 }
 
 Dog::~Dog() {
+
+    delete _dogBrain;
     std::cout << RED << type << " destructor called!\n" RESET;
 }
 

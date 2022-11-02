@@ -5,33 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/31 16:31:27 by lrandria          #+#    #+#              #
-#    Updated: 2022/10/31 18:01:47 by lrandria         ###   ########.fr        #
+#    Created: 2022/11/02 10:26:46 by lrandria          #+#    #+#              #
+#    Updated: 2022/11/02 10:27:51 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Polymorphism
+NAME		=	momwhenigrowupiwanttobeabureaucrat
 
-CC			= c++
+CC			=	c++
 
-FLAGS		= -Wall -Wextra -Werror -std=c++98 -MMD -MP
+FLAGS		=	-Wall -Wextra -Werror -MMD -MP -g3
 
-INC			= inc/colours.h		\
-			  inc/Animal.hpp	\
-			  inc/Dog.hpp		\
-			  inc/Cat.hpp		\
+INC			=	inc/colours.h 			\
+				inc/Bureaucrat.hpp		\
 
-
-SRCS		= srcs/main.cpp	 	\
-			  srcs/Animal.cpp	\
-			  srcs/Dog.cpp		\
-			  srcs/Cat.cpp		\
-
+SRCS		=	main.cpp 				\
+				Bureaucrat.cpp			\
 
 OBJS		:=	$(addprefix ./objs/,$(SRCS:%.cpp=%.o))
 DEP			=	$(addprefix ./objs/,$(OBJS:%.o=%.d))
 
-all:		$(NAME)
+all:			$(NAME)
 
 -include $(DEP)
 
@@ -39,16 +33,15 @@ all:		$(NAME)
 				@mkdir -p $(@D)
 				$(CC) $(FLAGS) -o $@ -c $<
 
-$(NAME):	$(OBJS) $(INC)
-			$(CC) $(FLAGS) -o $(NAME) $(OBJS)
+$(NAME):		$(OBJS) $(INC)
+				$(CC) $(FLAGS) -I incl -o $(NAME) $(OBJS)
 
 clean:
-			rm -rf objs/
-			rm -rf deps/
+				rm -rf objs/
 
-fclean:		clean
-			rm -rf $(NAME)
+fclean:			clean
+				rm -rf $(NAME)
 
-re:			fclean all
+re:				fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:			all clean fclean re

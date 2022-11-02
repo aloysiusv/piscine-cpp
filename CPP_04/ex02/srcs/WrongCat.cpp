@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 17:31:49 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 17:11:00 by lrandria         ###   ########.fr       */
+/*   Created: 2022/11/01 15:40:43 by lrandria          #+#    #+#             */
+/*   Updated: 2022/11/01 21:28:07 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Dog.hpp"
+#include "../inc/WrongCat.hpp"
 
-Dog::Dog() : Animal("Dog") {
+WrongCat::WrongCat() : AWrongAnimal("WrongCat") {
     std::cout << BLUE << type << " default constructor called!\n" RESET;
 }
 
-Dog::Dog(Dog const &src) : Animal(src) {
+WrongCat::WrongCat(WrongCat const &src) : AWrongAnimal(src) {
     
     std::cout << BLUE << type << " copy constructor called!\n" RESET;
     *this = src;
 }
 
-Dog::~Dog() {
+WrongCat::~WrongCat() {
     std::cout << RED << type << " destructor called!\n" RESET;
 }
 
-Dog  &Dog::operator=(Dog const &rhs) {
+WrongCat  &WrongCat::operator=(WrongCat const &rhs) {
     
     std::cout << BLUE << type << " assignment operator called!\n" RESET;
     type = rhs.type;
     return (*this);
 }
 
-void    Dog::makeSound() const {
-    std::cout << getType() << " is BAA-baaa-BaaArking\n";
+void    WrongCat::makeSound() const {
+    std::cout << getType() << " is doing a wrong meeEooOoOOOooow\n";
 }

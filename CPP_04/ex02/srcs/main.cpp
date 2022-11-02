@@ -6,32 +6,29 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:16:00 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 17:17:20 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/02 10:24:02 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Animal.hpp"
+#include "../inc/AAnimal.hpp"
 #include "../inc/Cat.hpp"
 #include "../inc/Dog.hpp"
-#include "../inc/WrongAnimal.hpp"
+#include "../inc/AWrongAnimal.hpp"
 #include "../inc/WrongCat.hpp"
 
-int main(void)
-{
-	const Animal		*meta = new Animal();
-	const Animal		*cat = new Cat();
-	const Animal		*dog = new Dog();
-	const WrongAnimal	*badAnimal = new WrongAnimal();
-	const WrongAnimal	*badCat = new WrongCat();
+int main(void) {
+
+	const AAnimal		*cat = new Cat();
+	const AAnimal		*dog = new Dog();
+	const AWrongAnimal	*badAnimal = new AWrongAnimal();
+	const AWrongAnimal	*badCat = new WrongCat();
 
 	std::cout << cat->getType() << std::endl
 			  << dog->getType() << std::endl;
 	cat->makeSound();
 	dog->makeSound();
-	meta->makeSound();
 	badAnimal->makeSound();
 	badCat->makeSound();
-	delete meta;
 	delete cat;
 	delete dog;
 	delete badAnimal;

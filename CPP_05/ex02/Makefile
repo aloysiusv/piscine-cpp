@@ -5,30 +5,31 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/01 16:58:26 by lrandria          #+#    #+#              #
-#    Updated: 2022/11/01 17:22:56 by lrandria         ###   ########.fr        #
+#    Created: 2022/11/02 15:42:04 by lrandria          #+#    #+#              #
+#    Updated: 2022/11/02 15:43:47 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Polymorphism
+NAME		=	ohbutyouneed28bnot28c
 
 CC			=	c++
 
-FLAGS		=	-Wall -Wextra -Werror -MMD -MP
+FLAGS		=	-Wall -Wextra -Werror -MMD -MP -g3
 
-INC			=	inc/colours.h 			\
-				inc/Animal.hpp			\
-				inc/Cat.hpp				\
-				inc/Dog.hpp				\
-				inc/WrongAnimal.hpp		\
-				inc/WrongCat.hpp		\
+INC			=	inc/colours.h 					\
+				inc/Bureaucrat.hpp				\
+				inc/Form.hpp					\
+				inc/ShrubberyCreationForm.hpp	\
+				inc/RobotomyCreationForm.hpp	\
+				inc/PresidentialPardonForm.hpp	\
 
-SRCS		=	main.cpp 				\
-				Animal.cpp				\
-				Cat.cpp					\
-				Dog.cpp					\
-				WrongAnimal.cpp			\
-				WrongCat.cpp			\
+
+SRCS		=	main.cpp 						\
+				Bureaucrat.cpp					\
+				Form.cpp						\
+				ShrubberyCreationForm.cpp		\
+				RobotomyCreationForm.cpp		\
+				PresidentialPardonForm.cpp		\
 
 OBJS		:=	$(addprefix ./objs/,$(SRCS:%.cpp=%.o))
 DEP			=	$(addprefix ./objs/,$(OBJS:%.o=%.d))
