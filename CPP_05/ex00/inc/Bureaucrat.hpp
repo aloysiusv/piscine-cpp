@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 10:28:29 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/02 11:45:04 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:19:27 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,18 @@ class Bureaucrat {
 	
 		void				gradeUp();
 		void				gradeDown();
+		class GradeTooLowException : public std::exception {
+			public:
+				char const *error() const throw();
+		};
+		class GradeTooHighException : public std::exception {
+			public:
+				char const *error() const throw();
+		};
 
 	private:
 		std::string const	_name;
 		int					_grade;
-
-		class _GradeTooLowException : public std::exception {
-			public:
-				const char *what() const throw();
-		};
-		class _GradeTooHighException : public std::exception {
-			public:
-				const char *what() const throw();
-		};
 };
 
 std::ostream	&operator<<(std::ostream &out, Bureaucrat const &rhs);	

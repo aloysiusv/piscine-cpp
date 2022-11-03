@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 10:28:29 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/02 15:36:07 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:24:16 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@
 # include <string>
 # include <cstdlib>
 # include <stdexcept>
-# include "Form.hpp"
 # include "colours.h"
+# include "Form.hpp"
 
 # define MAXGRADE	1
 # define MINGRADE	150
 
+class Form;
 class Bureaucrat {
 	
 	public:
@@ -40,18 +41,18 @@ class Bureaucrat {
 		void				gradeDown();
 		void				signForm(Form &form);
 
+		class GradeTooLowException : public std::exception {
+			public:
+				char const *error() const throw();
+		};
+		class GradeTooHighException : public std::exception {
+			public:
+				char const *error() const throw();
+		};
+
 	private:
 		std::string const	_name;
 		int					_grade;
-
-		class _GradeTooLowException : public std::exception {
-			public:
-				const char *what() const throw();
-		};
-		class _GradeTooHighException : public std::exception {
-			public:
-				const char *what() const throw();
-		};
 };
 
 std::ostream	&operator<<(std::ostream &out, Bureaucrat const &rhs);	

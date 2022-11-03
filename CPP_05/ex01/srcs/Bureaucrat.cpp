@@ -6,11 +6,15 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:20:35 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/02 15:36:31 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:18:43 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
+
+/* ==========================================================================
+								COPLIEN FORM 
+   ========================================================================== */
 
 Bureaucrat::Bureaucrat() : _name("default"), _grade(150) {
 	std::cout << BLUE << _name << " Bureaucrat constructor called!\n" RESET;
@@ -18,11 +22,11 @@ Bureaucrat::Bureaucrat() : _name("default"), _grade(150) {
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
 
-	std::cout << BLUE <<  _name << "Bureaucrat parameterised constructor called!\n" RESET;
+	std::cout << BLUE <<  _name << " Bureaucrat parameterised constructor called!\n" RESET;
 	if (grade < MAXGRADE)
-		throw Bureaucrat::_GradeTooHighException();
+		throw Bureaucrat::GradeTooHighException();
 	else if (grade > MINGRADE)
-		throw Bureaucrat::_GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src) {
@@ -38,9 +42,14 @@ Bureaucrat::~Bureaucrat() {
 Bureaucrat			&Bureaucrat::operator=(Bureaucrat const &rhs) {
 	
 	std::cout << BLUE << _name << " Bureaucrat assignment operator called!\n" RESET;
-	_grade = rhs._grade;
+	if (this != &rhs)
+		_grade = rhs._grade;
 	return (*this);
 }
+
+/* ==========================================================================
+								GETTERS-SETTERS 
+   ========================================================================== */
 
 std::string const	Bureaucrat::getName() const {
 	return (_name);
@@ -50,42 +59,50 @@ int					Bureaucrat::getGrade() const {
 	return (_grade);
 }
 
-char const			*Bureaucrat::_GradeTooHighException::what() const throw() {
-	return (ORANGE"Exception: Bureaucrat: grade is too high! :("RESET);
+/* ==========================================================================
+								EXCEPTIONS 
+   ========================================================================== */
+
+char const			*Bureaucrat::GradeTooHighException::error() const throw() {
+	return ("\e[0;38;5;166mException: grade is too high! :(\e[0m");
 }
 
-char const			*Bureaucrat::_GradeTooLowException::what() const throw() {
-	return (ORANGE"Exception: Bureaucrat: grade is too low! :("RESET);
+char const			*Bureaucrat::GradeTooLowException::error() const throw() {
+	return ("\e[0;38;5;166mException: grade is too low! :(\e[0m");
 }
+
+/* ==========================================================================
+								MEMBER FUNCTIONS 
+   ========================================================================== */
 
 void				Bureaucrat::gradeUp() {
 
 	if (_grade <= MAXGRADE)
-		throw Bureaucrat::_GradeTooHighException();
+		throw Bureaucrat::GradeTooHighException();
 	_grade--;
 }
 
 void				Bureaucrat::gradeDown() {
 
 	if (_grade >= MINGRADE)
-		throw Bureaucrat::_GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 	_grade++;
 }
 
 void				Bureaucrat::signForm(Form &form) {
 
-	if (_grade > form.getGradeToSign()) {
-
+	if (form.getIsSigned() == true)
 		std::cout << _name << " signed " << form.getName() << std::endl;
-		form.setSigned();
-	}
 	else
-		std::cout << _name << " couldn't sign " << form.getName() << " because his/her grade is too low\n";
+		std::cout << _name << " couldn't sign " << form.getName() 
+				  << "because he/she has smelly feet.\n";
 }
+/* ==========================================================================
+								OVERLOADS 
+   ========================================================================== */
 
 std::ostream		&operator<<(std::ostream &out, Bureaucrat const &rhs) {
 
-	out << rhs.getName() << ", grade: " << rhs.getGrade() << std::endl;
+	out << rhs.getName() << ", bureaucrat grade: " << rhs.getGrade() << std::endl;
 	return (out);
 }
-

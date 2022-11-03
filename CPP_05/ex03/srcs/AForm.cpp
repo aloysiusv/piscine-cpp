@@ -1,61 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 12:36:07 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/03 12:18:43 by lrandria         ###   ########.fr       */
+/*   Created: 2022/11/03 12:10:25 by lrandria          #+#    #+#             */
+/*   Updated: 2022/11/04 00:29:19 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Form.hpp"
+#include "../inc/AForm.hpp"
 
 /* ==========================================================================
-								COPLIEN FORM 
+								COPLIEN AFORM 
    ========================================================================== */
 
-Form::Form(): _name("default"), 
+AForm::AForm(): _name("default"), 
 			  _isSigned(false), 
 			  _gradeToSign(150), 
 			  _gradeToExec(150) {
-	std::cout << BLUE << "default Form Construtor called" RESET;
+	std::cout << BLUE << "default AForm construtor called" RESET;
 }
 
-Form::Form(std::string name, int toSign, int toExec) : _name(name), 
-													   _isSigned(0),
-													   _gradeToSign(toSign),
-													   _gradeToExec(toExec) {
+AForm::AForm(std::string const name, int const toSign, int const toExec) : _name(name), 
+													   					   _isSigned(false),
+													   					   _gradeToSign(toSign),
+													   					   _gradeToExec(toExec) {
 
-	std::cout << BLUE <<  _name << " parameterised Form constructor called!\n" RESET;
+	std::cout << BLUE <<  _name << " parameterised AForm constructor called!\n" RESET;
 	if (_gradeToSign < MAXGRADE || _gradeToExec < MAXGRADE)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	if (_gradeToSign > MINGRADE || _gradeToExec > MINGRADE)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 }
 
-Form::Form(Form const &src) : _name(src._name),
+AForm::AForm(AForm const &src) : _name(src._name),
 							  _isSigned(src._isSigned),
 							  _gradeToSign(src._gradeToSign),
 							  _gradeToExec(src._gradeToExec) {
 	
-	std::cout << BLUE << _name << " Form copy constructor called!\n" RESET;
+	std::cout << BLUE << _name << " AForm copy constructor called!\n" RESET;
 	if (_gradeToSign < MAXGRADE || _gradeToExec < MAXGRADE)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	if (_gradeToSign > MINGRADE || _gradeToExec > MINGRADE)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	*this = src;
 }
 
-Form::~Form() {
-	std::cout << RED << _name << " Form destructor called!\n" RESET;
+AForm::~AForm() {
+	std::cout << RED << _name << " AForm destructor called!\n" RESET;
 }
 
-Form				&Form::operator=(Form const &rhs) {
+AForm				&AForm::operator=(AForm const &rhs) {
 	
-	std::cout << BLUE << _name << " Form assignment operator called!\n" RESET;
-	_isSigned = rhs._isSigned;
+	std::cout << BLUE << _name << " AForm assignment operator called!\n" RESET;
+	if (this != &rhs)
+		_isSigned = rhs._isSigned;
 	return (*this);
 }
 
@@ -63,47 +64,63 @@ Form				&Form::operator=(Form const &rhs) {
 								GETTERS-SETTERS 
    ========================================================================== */
 
-std::string	const	Form::getName() const {
+std::string	const	AForm::getName() const {
 	return (_name);
 }
 
-bool				Form::getIsSigned() const {
+bool				AForm::getIsSigned() const {
 	return (_isSigned);
 }
 
-int					Form::getGradeToSign() const {
+int					AForm::getGradeToSign() const {
 	return (_gradeToSign);
 }
 
-int					Form::getGradeToExec() const {
+int					AForm::getGradeToExec() const {
 	return (_gradeToExec);
 }
 
-void				Form::setSigned() {
-	_isSigned = true;
+std::string			AForm::getTarget() const {
+	return (_target);
+}
+
+void				AForm::setSigned(bool sign) {
+	_isSigned = sign;
+}
+
+void				AForm::setTarget(std::string target) {
+	_target = target;
 }
 
 /* ==========================================================================
 								EXCEPTIONS 
    ========================================================================== */
 
-char const			*Form::GradeTooHighException::error() const throw() {
+char const			*AForm::GradeTooHighException::error() const throw() {
 	return ("\e[0;38;5;166mException: grade is too high! :(\e[0m");
 }
 
-char const			*Form::GradeTooLowException::error() const throw() {
+char const			*AForm::GradeTooLowException::error() const throw() {
 	return ("\e[0;38;5;166mException: grade is too low! :(\e[0m");
+}
+
+char const			*AForm::BadExecRightsException::error() const throw() {
+	return ("\e[0;38;5;166mException: exec grade is too low! :(\e[0m");
+}
+
+char const			*AForm::NotSignedException::error() const throw() {
+	return ("\e[0;38;5;166mException: form has not been signed! :(\e[0m");
 }
 
 /* ==========================================================================
 								MEMBER FUNCTIONS 
    ========================================================================== */
 
-void				Form::beSigned(Bureaucrat const &target) {
+void				AForm::beSigned(Bureaucrat const &rhs) {
 
-	if (target.getGrade() > _gradeToSign)
-		throw Form::GradeTooLowException();
-	std::cout << target.getName() << " signed " << _name << std::endl;
+	if (rhs.getGrade() > _gradeToSign)
+		throw AForm::GradeTooLowException();
+	std::cout << rhs.getName() << " signed " << _name << std::endl;
 	_isSigned = true;
 }
 
@@ -111,11 +128,12 @@ void				Form::beSigned(Bureaucrat const &target) {
 								OVERLOADS 
    ========================================================================== */
 
-std::ostream		&operator<<(std::ostream &out, Form const &rhs) {
+std::ostream		&operator<<(std::ostream &out, AForm const &rhs) {
 
 	out << "Form name: " << rhs.getName() << std::endl
 		<< "Is it signed? " << rhs.getIsSigned() << std::endl
 		<< "Required grade to sign: " << rhs.getGradeToSign() << std::endl
-		<< "Required grade to execute: " << rhs.getGradeToExec() << std::endl;
+		<< "Required grade to execute: " << rhs.getGradeToExec() << std::endl
+		<< "Target: " << rhs.getTarget() << std::endl;
 	return (out);
 }

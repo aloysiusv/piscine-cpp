@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 12:36:11 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/02 15:41:37 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:19:27 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
 class Form
 {
 	public:
@@ -34,20 +35,21 @@ class Form
 		void				beSigned(Bureaucrat const &target);
 		void				signForm() const;
 
+		class GradeTooHighException : public std::exception {
+			public:
+				char const *error() const throw();
+		};
+		class GradeTooLowException : public std::exception{
+			public:
+				char const *error() const throw();
+		};
+
 	private:
 		std::string const	_name;
 		bool				_isSigned;
 		int const			_gradeToSign;
 		int	const			_gradeToExec;
 
-		class _GradeTooHighException : public std::exception {
-			public:
-				const char *what() const throw();
-		};
-		class _GradeTooLowException : public std::exception{
-			public:
-				const char *what() const throw();
-		};
 };
 
 std::ostream		&operator<<(std::ostream &out, Form const &rhs);

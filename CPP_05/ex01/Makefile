@@ -6,15 +6,15 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 16:58:26 by lrandria          #+#    #+#              #
-#    Updated: 2022/11/02 13:37:44 by lrandria         ###   ########.fr        #
+#    Updated: 2022/11/03 11:19:00 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	getinlineyouworms
+NAME		=	lineupyouslimyworms
 
 CC			=	c++
 
-FLAGS		=	-Wall -Wextra -Werror -MMD -MP -g3
+FLAGS		=	-Wall -Wextra -Werror -MMD -MP -std=c++98
 
 INC			=	inc/colours.h 			\
 				inc/Bureaucrat.hpp		\

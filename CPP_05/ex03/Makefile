@@ -5,22 +5,33 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/01 16:58:26 by lrandria          #+#    #+#              #
-#    Updated: 2022/11/03 10:36:18 by lrandria         ###   ########.fr        #
+#    Created: 2022/11/02 15:42:04 by lrandria          #+#    #+#              #
+#    Updated: 2022/11/04 00:20:56 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	mumwhenigrowupiwanttobeabureaucrat
+NAME		=	stillbetterthanmakingcoffee
 
 CC			=	c++
 
 FLAGS		=	-Wall -Wextra -Werror -MMD -MP -std=c++98
 
-INC			=	inc/colours.h 			\
-				inc/Bureaucrat.hpp		\
+INC			=	inc/colours.h 					\
+				inc/AForm.hpp					\
+				inc/Bureaucrat.hpp				\
+				inc/ShrubberyCreationForm.hpp	\
+				inc/RobotomyRequestForm.hpp		\
+				inc/PresidentialPardonForm.hpp	\
+				inc/Intern.hpp					\
 
-SRCS		=	main.cpp 				\
-				Bureaucrat.cpp			\
+
+SRCS		=	main.cpp 						\
+				AForm.cpp						\
+				Bureaucrat.cpp					\
+				ShrubberyCreationForm.cpp		\
+				RobotomyRequestForm.cpp			\
+				PresidentialPardonForm.cpp		\
+				Intern.cpp						\
 
 OBJS		:=	$(addprefix ./objs/,$(SRCS:%.cpp=%.o))
 DEP			=	$(addprefix ./objs/,$(OBJS:%.o=%.d))

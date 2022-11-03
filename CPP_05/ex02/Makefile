@@ -6,7 +6,7 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 15:42:04 by lrandria          #+#    #+#              #
-#    Updated: 2022/11/02 15:43:47 by lrandria         ###   ########.fr        #
+#    Updated: 2022/11/03 23:26:01 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,21 +14,21 @@ NAME		=	ohbutyouneed28bnot28c
 
 CC			=	c++
 
-FLAGS		=	-Wall -Wextra -Werror -MMD -MP -g3
+FLAGS		=	-Wall -Wextra -Werror -MMD -MP -std=c++98
 
 INC			=	inc/colours.h 					\
+				inc/AForm.hpp					\
 				inc/Bureaucrat.hpp				\
-				inc/Form.hpp					\
 				inc/ShrubberyCreationForm.hpp	\
-				inc/RobotomyCreationForm.hpp	\
+				inc/RobotomyRequestForm.hpp		\
 				inc/PresidentialPardonForm.hpp	\
 
 
 SRCS		=	main.cpp 						\
+				AForm.cpp						\
 				Bureaucrat.cpp					\
-				Form.cpp						\
 				ShrubberyCreationForm.cpp		\
-				RobotomyCreationForm.cpp		\
+				RobotomyRequestForm.cpp			\
 				PresidentialPardonForm.cpp		\
 
 OBJS		:=	$(addprefix ./objs/,$(SRCS:%.cpp=%.o))
@@ -49,6 +49,7 @@ clean:
 				rm -rf objs/
 
 fclean:			clean
+				rm *_shrubbery
 				rm -rf $(NAME)
 
 re:				fclean all
