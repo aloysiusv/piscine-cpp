@@ -6,37 +6,62 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:31:49 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 21:05:47 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/03 10:27:37 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Dog.hpp"
 
+/* ==========================================================================
+								COPLIEN FORM 
+   ========================================================================== */
+
 Dog::Dog() : AAnimal("Dog") {
 
-    _dogBrain = new Brain;
-    std::cout << BLUE << type << " default constructor called!\n" RESET;
+	_dogBrain = new Brain;
+	std::cout << BLUE << type << " default constructor called!\n" RESET;
 }
 
 Dog::Dog(Dog const &src) : AAnimal(src) {
-    
-    std::cout << BLUE << type << " copy constructor called!\n" RESET;
-    *this = src;
+	
+	std::cout << BLUE << type << " copy constructor called!\n" RESET;
+	_dogBrain = new Brain(*src._dogBrain);
 }
 
 Dog::~Dog() {
 
-    delete _dogBrain;
-    std::cout << RED << type << " destructor called!\n" RESET;
+	delete _dogBrain;
+	std::cout << RED << type << " destructor called!\n" RESET;
 }
 
 Dog  &Dog::operator=(Dog const &rhs) {
-    
-    std::cout << BLUE << type << " assignment operator called!\n" RESET;
-    type = rhs.type;
-    return (*this);
+	
+	std::cout << BLUE << type << " assignment operator called!\n" RESET;
+	if (this != &rhs)
+		_dogBrain = rhs._dogBrain;
+	return (*this);
 }
 
+/* ==========================================================================
+								GETTERS-SETTERS 
+   ========================================================================== */
+
+Brain		*Dog::getDogBrain() const {
+	return (_dogBrain);
+}
+
+std::string	Dog::getOneThought() const {
+	return (_dogBrain->getRandIdea());
+}
+
+void		Dog::setThought(std::string thought) {
+	_dogBrain->setIdeas(thought);
+}
+
+/* ==========================================================================
+								MEMBER FUNCTIONS 
+   ========================================================================== */
+
 void    Dog::makeSound() const {
-    std::cout << getType() << " is BAA-baaa-BaaArking\n";
+	std::cout << getType() << " is BAA-baaa-BaaArking\n";
 }

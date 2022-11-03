@@ -6,11 +6,15 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:42:05 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 21:53:31 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/03 10:32:17 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/AAnimal.hpp"
+
+/* ==========================================================================
+								COPLIEN FORM 
+   ========================================================================== */
 
 AAnimal::AAnimal() : type("AAnimal") {
     std::cout << BLUE << type << " default constructor called!\n" RESET;
@@ -33,9 +37,14 @@ AAnimal::~AAnimal() {
 AAnimal  &AAnimal::operator=(AAnimal const &rhs) {
     
     std::cout << BLUE << "AAnimal assignment operator called!\n" RESET;
-    type = rhs.type;
+    if (this != &rhs)
+		type = rhs.type;
     return (*this);
 }
+
+/* ==========================================================================
+								GETTERS-SETTERS 
+   ========================================================================== */
 
 const std::string AAnimal::getType() const {
     return (type);

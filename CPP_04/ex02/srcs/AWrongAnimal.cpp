@@ -6,11 +6,15 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:40:40 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 21:27:46 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/03 10:22:26 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/AWrongAnimal.hpp"
+
+/* ==========================================================================
+								COPLIEN FORM 
+   ========================================================================== */
 
 AWrongAnimal::AWrongAnimal() : type("AWrongAnimal") {
     std::cout << BLUE << type << " default constructor called!\n" RESET;
@@ -33,13 +37,23 @@ AWrongAnimal::~AWrongAnimal() {
 AWrongAnimal  &AWrongAnimal::operator=(AWrongAnimal const &rhs) {
     
     std::cout << BLUE << type << " assignment operator called!\n" RESET;
-    type = rhs.type;
+    if (this != &rhs)
+		type = rhs.type;
     return (*this);
 }
+
+/* ==========================================================================
+								GETTERS-SETTERS 
+   ========================================================================== */
+
 
 const std::string AWrongAnimal::getType() const {
     return (type);
 }
+
+/* ==========================================================================
+								MEMBER FUNCTIONS 
+   ========================================================================== */
 
 void    AWrongAnimal::makeSound() const {
     std::cout << "* A wrong animalistic sounds *\n";

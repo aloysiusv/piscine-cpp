@@ -6,13 +6,17 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:40:43 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 21:28:07 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/03 10:29:29 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/WrongCat.hpp"
 
-WrongCat::WrongCat() : AWrongAnimal("WrongCat") {
+/* ==========================================================================
+								COPLIEN FORM 
+   ========================================================================== */
+
+WrongCat::WrongCat() : AWrongAnimal() {
     std::cout << BLUE << type << " default constructor called!\n" RESET;
 }
 
@@ -32,6 +36,26 @@ WrongCat  &WrongCat::operator=(WrongCat const &rhs) {
     type = rhs.type;
     return (*this);
 }
+
+/* ==========================================================================
+								GETTERS-SETTERS 
+   ========================================================================== */
+
+Brain		*WrongCat::getWrongCatBrain() const {
+	return (_wrongCatBrain);
+}
+
+std::string	WrongCat::getOneThought() const {
+	return (_wrongCatBrain->getRandIdea());
+}
+
+void		WrongCat::setThought(std::string thought) {
+	_wrongCatBrain->setIdeas(thought);
+}
+
+/* ==========================================================================
+								MEMBER FUNCTIONS 
+   ========================================================================== */
 
 void    WrongCat::makeSound() const {
     std::cout << getType() << " is doing a wrong meeEooOoOOOooow\n";

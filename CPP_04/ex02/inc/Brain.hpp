@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 17:57:34 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 18:00:49 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/03 10:17:09 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ class Brain {
 		virtual ~Brain();
 		
 		Brain			&operator=(Brain const &rhs);
+
+		std::string		getRandIdea() const;
+		void			setIdeas(std::string idea);
 
 		std::string		ideas[100];
 };

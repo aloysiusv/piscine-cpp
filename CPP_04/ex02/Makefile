@@ -6,21 +6,31 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 10:26:46 by lrandria          #+#    #+#              #
-#    Updated: 2022/11/02 10:27:51 by lrandria         ###   ########.fr        #
+#    Updated: 2022/11/03 10:34:20 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	momwhenigrowupiwanttobeabureaucrat
+NAME		=	abstractclass
 
 CC			=	c++
 
-FLAGS		=	-Wall -Wextra -Werror -MMD -MP -g3
+FLAGS		=	-Wall -Wextra -Werror -MMD -MP -std=c++98
 
 INC			=	inc/colours.h 			\
-				inc/Bureaucrat.hpp		\
+				inc/AAnimal.hpp			\
+				inc/Cat.hpp				\
+				inc/Dog.hpp				\
+				inc/AWrongAnimal.hpp	\
+				inc/WrongCat.hpp		\
+				inc/Brain.hpp			\
 
 SRCS		=	main.cpp 				\
-				Bureaucrat.cpp			\
+				AAnimal.cpp				\
+				Cat.cpp					\
+				Dog.cpp					\
+				AWrongAnimal.cpp		\
+				WrongCat.cpp			\
+				Brain.cpp				\
 
 OBJS		:=	$(addprefix ./objs/,$(SRCS:%.cpp=%.o))
 DEP			=	$(addprefix ./objs/,$(OBJS:%.o=%.d))

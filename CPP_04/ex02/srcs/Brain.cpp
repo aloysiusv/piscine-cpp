@@ -6,14 +6,21 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:01:16 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 18:31:46 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/03 10:23:56 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Brain.hpp"
 
+/* ==========================================================================
+								COPLIEN FORM 
+   ========================================================================== */
+
 Brain::Brain() {
+
 	std::cout << BLUE "Brain default constructor called!\n" RESET;
+	for (uint i = 0; i < 100; i++)
+		ideas[i] = "* only floof here *";
 }
 
 Brain::Brain(Brain const &src) {
@@ -29,6 +36,22 @@ Brain::~Brain() {
 Brain  &Brain::operator=(Brain const &rhs) {
 	
 	std::cout << BLUE "Brain assignment operator called!\n" RESET;
-	*this = rhs;
+	if (this != &rhs)
+		for (uint i = 0; i < 100; i++)
+			ideas[i] = rhs.ideas[i];
 	return (*this);
+}
+
+/* ==========================================================================
+								GETTERS-SETTERS 
+   ========================================================================== */
+
+std::string		Brain::getRandIdea() const {
+	return (ideas[rand() % 100]);
+}
+
+void			Brain::setIdeas(std::string idea) {
+		
+	for (uint i = 0; i < 100; i++)
+		ideas[i] = idea;
 }

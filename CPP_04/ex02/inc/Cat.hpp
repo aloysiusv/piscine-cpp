@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:16:39 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 21:05:06 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/03 10:18:00 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ class Cat : public AAnimal {
 		virtual ~Cat();
 
 		Cat				&operator=(Cat const &rhs);
+
+		Brain			*getCatBrain() const;
+		std::string		getOneThought() const;
+		void			setThought(std::string idea);
 
 		virtual void	makeSound() const;
 

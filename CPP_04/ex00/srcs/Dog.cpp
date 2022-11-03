@@ -6,11 +6,15 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:31:49 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 17:11:00 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/02 20:01:13 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Dog.hpp"
+
+/* ==========================================================================
+								COPLIEN FORM 
+   ========================================================================== */
 
 Dog::Dog() : Animal("Dog") {
     std::cout << BLUE << type << " default constructor called!\n" RESET;
@@ -29,9 +33,14 @@ Dog::~Dog() {
 Dog  &Dog::operator=(Dog const &rhs) {
     
     std::cout << BLUE << type << " assignment operator called!\n" RESET;
-    type = rhs.type;
+    if (this != &rhs)
+        type = rhs.type;
     return (*this);
 }
+
+/* ==========================================================================
+								MEMBER FUNCTIONS 
+   ========================================================================== */
 
 void    Dog::makeSound() const {
     std::cout << getType() << " is BAA-baaa-BaaArking\n";

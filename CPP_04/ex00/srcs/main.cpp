@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:16:00 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 17:17:20 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/02 20:16:09 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,33 @@
 #include "../inc/WrongAnimal.hpp"
 #include "../inc/WrongCat.hpp"
 
+void	testNoVirtual() {
+
+	const WrongAnimal	*badAnimal = new WrongAnimal();
+	const WrongAnimal	*badCat = new WrongCat();
+
+	std::cout << "[extra test]\n";
+	badAnimal->makeSound();
+	badCat->makeSound();
+	delete badAnimal;
+	delete badCat;
+}
+
 int main(void)
 {
 	const Animal		*meta = new Animal();
 	const Animal		*cat = new Cat();
 	const Animal		*dog = new Dog();
-	const WrongAnimal	*badAnimal = new WrongAnimal();
-	const WrongAnimal	*badCat = new WrongCat();
 
+	std::cout << "[Main test]\n";
 	std::cout << cat->getType() << std::endl
 			  << dog->getType() << std::endl;
+	meta->makeSound();
 	cat->makeSound();
 	dog->makeSound();
-	meta->makeSound();
-	badAnimal->makeSound();
-	badCat->makeSound();
 	delete meta;
 	delete cat;
 	delete dog;
-	delete badAnimal;
-	delete badCat;
+	testNoVirtual();
 	return (EXIT_SUCCESS);
 }

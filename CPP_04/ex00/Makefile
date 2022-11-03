@@ -6,7 +6,7 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 16:58:26 by lrandria          #+#    #+#              #
-#    Updated: 2022/11/01 17:22:56 by lrandria         ###   ########.fr        #
+#    Updated: 2022/11/03 10:34:27 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	Polymorphism
 
 CC			=	c++
 
-FLAGS		=	-Wall -Wextra -Werror -MMD -MP
+FLAGS		=	-Wall -Wextra -Werror -MMD -MP -std=c++98
 
 INC			=	inc/colours.h 			\
 				inc/Animal.hpp			\

@@ -6,11 +6,15 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:40:43 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/01 17:10:55 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/02 16:40:56 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/WrongCat.hpp"
+
+/* ==========================================================================
+								COPLIEN FORM 
+   ========================================================================== */
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat") {
     std::cout << BLUE << type << " default constructor called!\n" RESET;
@@ -32,6 +36,10 @@ WrongCat  &WrongCat::operator=(WrongCat const &rhs) {
     type = rhs.type;
     return (*this);
 }
+
+/* ==========================================================================
+								MEMBER FUNCTIONS 
+   ========================================================================== */
 
 void    WrongCat::makeSound() const {
     std::cout << getType() << " is doing a wrong meeEooOoOOOooow\n";

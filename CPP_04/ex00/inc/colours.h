@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 03:50:25 by lrandria          #+#    #+#             */
-/*   Updated: 2022/10/01 03:59:29 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/02 16:41:45 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,20 @@
 # define BOLD_GREEN		"\e[1;32m"
 # define BOLD_BLUE		"\e[1;34m"
 # define BOLD_CYAN		"\e[1;36m"
-# define BOLD_MAGENTA	"\e[1;35m"
-# define BOLD_YELLOW	"\e[1;33m"
+# define BOLD_MAGENTA	        "\e[1;35m"
+# define BOLD_YELLOW	        "\e[1;33m"
 # define BOLD_BLACK		"\e[1;30m"
 # define BOLD_WHITE		"\e[1;37m"
 
 /* underline*/
 # define UNDER_RED		"\e[4;31m"
-# define UNDER_GREEN	"\e[4;32m"
+# define UNDER_GREEN	        "\e[4;32m"
 # define UNDER_BLUE		"\e[4;34m"
 # define UNDER_CYAN		"\e[4;36m"
-# define UNDER_MAGENTA	"\e[4;35m"
-# define UNDER_YELLOW	"\e[4;33m"
-# define UNDER_BLACK	"\e[4;30m"
-# define UNDER_WHITE	"\e[4;37m"
+# define UNDER_MAGENTA	        "\e[4;35m"
+# define UNDER_YELLOW	        "\e[4;33m"
+# define UNDER_BLACK	        "\e[4;30m"
+# define UNDER_WHITE	        "\e[4;37m"
 
 /* high intensity */
 # define H_RED			"\e[0;91m"
