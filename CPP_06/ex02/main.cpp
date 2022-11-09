@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:49:17 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/09 01:52:29 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/09 09:55:13 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ void	identify(Base &base)
 	std::cout << "Identified: ";
 
 	try {
-		dynamic_cast<A&>(base);
+		dynamic_cast<A &>(base);
 		std::cout << BLUE "A by ref\n" RESET;
 	}
 	catch (std::exception &e) {}
 	
 	try {
-		dynamic_cast<B&>(base);
+		dynamic_cast<B &>(base);
 		std::cout << BLUE "B by ref\n" RESET;
 	}
 	catch (std::exception &e) {}
 	
 	try {
-		dynamic_cast<C&>(base);
+		dynamic_cast<C &>(base);
 		std::cout << BLUE "C by ref\n" RESET;
 	}
 	catch (std::exception &e) {}
@@ -83,10 +83,13 @@ int main() {
 	srand(time(NULL));
 	for (i = 0; i < maxBase; i++)
 		base[i] = generate();
+	std::cout << std::endl;
 	for (i = 0; i < maxBase; i++)
 		identify(base[i]);
+	std::cout << std::endl;
 	for (i = 0; i < maxBase; i++)
 		identify(*base[i]);
+	std::cout << std::endl;
 	for (i = 0; i < maxBase; i++)
 		delete base[i];
 }
