@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:11:36 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/08 19:56:17 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/09 09:36:45 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	convertFromChar(const char *str) {
         std::cout << c << std::endl;
 	}
 	std::cout << "int: " << static_cast<int>(c) << std::endl
-			  << std::setprecision(1)
+			  << std::fixed << std::setprecision(1)
 			  << "float: " << static_cast<float>(c) << "f\n"
 			  << "double: " << static_cast<double>(c) << std::endl;
 }
@@ -41,7 +41,7 @@ void	convertFromInt(const char *str) {
 		std::cout << static_cast<char>(i) << std::endl;
 	}
 	std::cout << "int: " << i << std::endl
-			  << std::setprecision(1)
+			  << std::fixed << std::setprecision(1)
 			  << "float: "  << static_cast<float>(i) << "f\n"
 			  << "double: " << static_cast<double>(i) << std::endl;
 }
@@ -64,7 +64,7 @@ void	convertFromFloat(const char *str) {
 	else { 
 		std::cout << static_cast<int>(f) << std::endl;
 	}
-	std::cout << std::setprecision(1)
+	std::cout << std::fixed << std::setprecision(1)
 			  << "float: " << f << "f\n"
 			  << "double: " << static_cast<double>(f) << std::endl;
 	return;
@@ -83,14 +83,14 @@ void	convertFromDouble(const char *str) {
 	else
 		std::cout << static_cast<char>(d) << std::endl;
 	std::cout << "int: ";
-	if (d < INT_MIN || d > INT_MAX || isnan(d) || isinf(d))
+	if (d < INT_MIN || d > INT_MAX || isnan(d) || isinff(d))
 		std::cout << "impossible\n";
 	else {
 		std::cout << static_cast<int>(d) << std::endl;
 	}
-	std::cout << std::setprecision(1) 
+	std::cout << std::fixed << std::setprecision(1) 
 			  << "float: ";
-	if (d < -FLT_MAX || d > FLT_MAX || isnan(d) || isinf(d))
+	if ((d > FLT_MAX) && (d < -FLT_MAX && (strcmp(str, "+inf") || strcmp(str, "-inf"))))
 		std::cout << "impossible\n";
 	else {
 		std::cout << static_cast<float>(d) << "f\n";

@@ -6,14 +6,14 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:45:36 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/08 20:02:11 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/09 08:41:47 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion.hpp"
 
-int main(int ac, char **av)
-{
+int main(int ac, char **av) {
+
 	if (ac != 2 || !strcmp(av[1], "")) {
 		std::cerr << "error: invalid arguments\n";
 		return (EXIT_FAILURE);
