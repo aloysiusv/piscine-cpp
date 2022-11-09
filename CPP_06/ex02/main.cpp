@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:49:17 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/09 01:42:36 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:45:56 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	identify(Base *p)
 
 Base	*generate() {
 
-	srand(time(NULL));
 	switch (rand() % 3) {
 
 		case 0: {
@@ -87,6 +86,7 @@ int main() {
 	Base	*base[maxBase];
 	uint	i;
 	
+	srand(time(NULL));
 	for (i = 0; i < maxBase; i++)
 		base[i] = generate();
 	for (i = 0; i < maxBase; i++)
