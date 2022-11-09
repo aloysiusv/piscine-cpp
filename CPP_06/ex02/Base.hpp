@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:38:27 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/09 00:46:25 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:48:20 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <cstring>
 # include <cstdlib>
+# include "colours.h"
 
 class Base {
 

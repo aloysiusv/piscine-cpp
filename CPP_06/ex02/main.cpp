@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:49:17 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/09 01:45:56 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:52:29 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,20 @@ void	identify(Base &base)
 	std::cout << "Identified: ";
 
 	try {
-		
 		dynamic_cast<A&>(base);
-		std::cout << "A by ref\n";
+		std::cout << BLUE "A by ref\n" RESET;
 	}
 	catch (std::exception &e) {}
 	
 	try {
-		
 		dynamic_cast<B&>(base);
-		std::cout << "B by ref\n";
+		std::cout << BLUE "B by ref\n" RESET;
 	}
 	catch (std::exception &e) {}
 	
 	try {
-		
 		dynamic_cast<C&>(base);
-		std::cout << "C by ref\n";
+		std::cout << BLUE "C by ref\n" RESET;
 	}
 	catch (std::exception &e) {}
 }
@@ -50,11 +47,11 @@ void	identify(Base *p)
 	std::cout << "Identified: ";
 
 	if (a)
-		std::cout << "A by ptr\n";
+		std::cout << MAGENTA "A by ptr\n" RESET;
 	else if (b)
-		std::cout << "B by ptr\n";
+		std::cout << MAGENTA "B by ptr\n" RESET;
 	else if (c)
-		std::cout << "C by ptr\n";
+		std::cout << MAGENTA "C by ptr\n" RESET;
 }
 
 Base	*generate() {
@@ -62,18 +59,15 @@ Base	*generate() {
 	switch (rand() % 3) {
 
 		case 0: {
-		
-			std::cout << "Generating A\n";
+			std::cout << GREEN "Generating A\n" RESET;
 			return (new A());
 		}
 		case 1: {
-		
-			std::cout << "Generating B\n";
+			std::cout << GREEN "Generating B\n" RESET;
 			return (new B());
 		}
 		case 2: {
-		
-			std::cout << "Generating C\n";
+			std::cout << GREEN "Generating C\n" RESET;
 			return (new C());
 		}
 	}
