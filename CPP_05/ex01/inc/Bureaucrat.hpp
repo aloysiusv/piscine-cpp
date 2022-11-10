@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 10:28:29 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/03 12:24:16 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/10 18:07:21 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define MINGRADE	150
 
 class Form;
+
 class Bureaucrat {
 	
 	public:

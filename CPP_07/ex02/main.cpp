@@ -70,13 +70,51 @@ void	testEmpty() {
 	}
 }
 
+#define MAX_VAL 750
+void	testMandatory() {
+
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++) {
+        
+		const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
+
+    for (int i = 0; i < MAX_VAL; i++) {
+        if (mirror[i] != numbers[i]) {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return ;
+        }
+    }
+    try { numbers[-2] = 0; }
+    catch(const std::exception& e) { std::cerr << e.what() << '\n'; }
+
+    try { numbers[MAX_VAL] = 0; }
+    catch(const std::exception& e) { std::cerr << e.what() << '\n'; }
+
+    for (int i = 0; i < MAX_VAL; i++) {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+}
+
 int	main() {
 
-	std::cout << YELLOW "==============EMPTY ARRAY TEST==============\n" RESET;
+	std::cout << YELLOW "==============MANDATORY TEST==============\n\n" RESET;
+	testMandatory();
+	std::cout << YELLOW "\n==============EMPTY ARRAY TEST==============\n\n" RESET;
 	testEmpty();
-	std::cout << YELLOW "==============PARAMETERISED ARRAY TEST==============\n" RESET;
+	std::cout << YELLOW "\n==============PARAMETERISED ARRAY TEST==============\n\n" RESET;
 	testParam();
-	std::cout << YELLOW "==============COPIED ARRAY TEST==============\n" RESET;
+	std::cout << YELLOW "\n==============COPIED ARRAY TEST==============\n\n" RESET;
 	testCopy();
 	return (EXIT_SUCCESS);
 }

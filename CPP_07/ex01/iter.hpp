@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:35:19 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/09 16:01:02 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/10 20:09:52 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,41 @@
 
 # include <iostream>
 # include <cstdlib>
+# include "colours.h"
 
+/* ==========================================================================
+								NOT CONST 
+   ========================================================================== */
+
+template <typename T>
+void	addFive(T &arr) {
+	// static_cast<double>(arr);
+	arr += 5;
+}
+
+template <typename T>
+void	iter2(T *array, int const len, void (*f)(T &cell)) {
+
+	for (int i = 0; i < len; i++) {
+		f(array[i]);
+	}
+	std::cout << std::endl;
+}
+
+/* ==========================================================================
+								CONST 
+   ========================================================================== */
 
 template <typename T>
 void	displayArray(T const &arr) {
-    std::cout << arr << " ";
+	std::cout << "[" << arr << "]" << " ";
 }
 
 template <typename T>
 void	iter(T const *array, int const len, void (*f)(T const &cell)) {
 
-    for (int i = 0; i < len; i++) {
-        f(array[i]);
+	for (int i = 0; i < len; i++) {
+		f(array[i]);
 	}
 	std::cout << std::endl;
 }
