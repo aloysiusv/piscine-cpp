@@ -5,31 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 20:02:54 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/09 09:48:44 by lrandria         ###   ########.fr       */
+/*   Created: 2022/11/10 15:31:51 by lrandria          #+#    #+#             */
+/*   Updated: 2022/11/10 15:31:57 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serialize.hpp"
+#include "Span.hpp"
 
-uintptr_t serialize(Data *ptr) {
-	return (reinterpret_cast<uintptr_t>(ptr));
-}
-
-Data	*deserialize(uintptr_t raw) {
-	return (reinterpret_cast<Data*>(raw));
-}
-
-int	main() {
-
-	Data		data;
-	uintptr_t	raw;
-	Data		*dataPtr;
-
-	data.c = 'x';
-	raw = serialize(&data);
-	dataPtr = deserialize(raw);
-	std::cout << "data.c = " << data.c << std::endl
-			  << "adress data: " << &data << std::endl
-			  << "deserialize: " << dataPtr << std::endl;
-}

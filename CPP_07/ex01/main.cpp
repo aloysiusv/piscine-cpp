@@ -5,31 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 20:02:54 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/09 09:48:44 by lrandria         ###   ########.fr       */
+/*   Created: 2022/11/09 15:25:16 by lrandria          #+#    #+#             */
+/*   Updated: 2022/11/09 16:14:30 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serialize.hpp"
+#include "iter.hpp"
 
-uintptr_t serialize(Data *ptr) {
-	return (reinterpret_cast<uintptr_t>(ptr));
-}
+int main() {
 
-Data	*deserialize(uintptr_t raw) {
-	return (reinterpret_cast<Data*>(raw));
-}
+    const int		arrayInt[5] = {98, 2, 73, 9, 0};
+	const char		arrayChar[3] = {'j', 'u', 'l'};
+	const char		*arrayChars[4] = {"evoli", "goupix", "dragon blanc aux yeux bleus", "\0"};
+	float			arrayFloats[2][3] = { {2.8, 4.7, 5.5}, {9.0, 0.0, 1.9}};
 
-int	main() {
-
-	Data		data;
-	uintptr_t	raw;
-	Data		*dataPtr;
-
-	data.c = 'x';
-	raw = serialize(&data);
-	dataPtr = deserialize(raw);
-	std::cout << "data.c = " << data.c << std::endl
-			  << "adress data: " << &data << std::endl
-			  << "deserialize: " << dataPtr << std::endl;
+    ::iter(arrayInt, 5, displayArray);
+    ::iter(arrayChar, 3, displayArray);
+    ::iter(arrayChars, 4, displayArray);
+    ::iter(arrayFloats, 2, displayArray);
+    ::iter(arrayFloats[0], 3, displayArray);
+    ::iter(arrayFloats[1], 3, displayArray);
+    return (EXIT_SUCCESS);
 }

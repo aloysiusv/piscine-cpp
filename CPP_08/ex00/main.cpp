@@ -5,31 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 20:02:54 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/09 09:48:44 by lrandria         ###   ########.fr       */
+/*   Created: 2022/11/10 15:12:31 by lrandria          #+#    #+#             */
+/*   Updated: 2022/11/10 15:17:49 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "serialize.hpp"
+#include "EasyFind.hpp"
 
-uintptr_t serialize(Data *ptr) {
-	return (reinterpret_cast<uintptr_t>(ptr));
-}
+int main(void)
+{
+	std::vector<int>::const_iterator	i;
+	std::vector<int> 					elem;
 
-Data	*deserialize(uintptr_t raw) {
-	return (reinterpret_cast<Data*>(raw));
-}
+	elem.push_back(4);
+	elem.push_back(16);
+	elem.push_back(7);
+	elem.push_back(2);
 
-int	main() {
+	try 
+	{
+		i = easyfind(elem, 0);
+		std::cout << *i << std::endl;
+	}
+	catch (std::exception &e){ 
+		std::cerr << e.what() << '\n';
+	}
 
-	Data		data;
-	uintptr_t	raw;
-	Data		*dataPtr;
-
-	data.c = 'x';
-	raw = serialize(&data);
-	dataPtr = deserialize(raw);
-	std::cout << "data.c = " << data.c << std::endl
-			  << "adress data: " << &data << std::endl
-			  << "deserialize: " << dataPtr << std::endl;
+	try
+	{
+		i = easyfind(elem, 16);
+		std::cout << *i << std::endl;
+	}
+	catch (std::exception &e) { 
+			std::cerr << e.what() << '\n';
+	}
+	return(EXIT_SUCCESS);
 }
