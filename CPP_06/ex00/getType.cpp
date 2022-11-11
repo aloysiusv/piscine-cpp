@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 19:51:53 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/09 09:38:27 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/11 14:04:13 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ bool	isDouble(const char *str) {
 	char	*endPtr;
 
 	d = strtod(str, &endPtr);
-	if ((d == 0.0 && strcmp(str, "0.0")) || strcmp(endPtr, "\0") || errno == ERANGE)
+	if ((d == 0.0 && strcmp(str, "0.0")) || (strcmp(endPtr, "\0") && strcmp(endPtr, "f"))
+										 || errno == ERANGE)
 		return (false);
 	return (true);
 }
@@ -31,7 +32,7 @@ bool	isFloat(const char *str) {
 	f = strtof(str, &endPtr);
 	if (!strcmp(str, "nanf") || !strcmp(str, "+inff") || !strcmp(str, "-inff"))
 		return (true);
-	if ((f == 0.0 && !strcmp(endPtr, str)) || strcmp(endPtr, "\0")
+	if ((f == 0.0 && !strcmp(endPtr, str)) || (strcmp(endPtr, "\0") && strcmp(endPtr, "f"))
 										   || f < -FLT_MAX || f > FLT_MAX || errno == ERANGE)
 		return (false);
 	return (true);
@@ -43,7 +44,7 @@ bool	isInt(const char *str) {
 	char	*endPtr;
 
 	i = strtol(str, &endPtr, 0);
-	if ((i == 0L && strcmp(str, "0")) || strcmp(endPtr, "\0") 
+	if ((i == 0L && strcmp(str, "0")) || (strcmp(endPtr, "\0") && strcmp(endPtr, "f"))
 									  || i < INT_MIN || i > INT_MAX || errno == ERANGE)
 		return (false);
 	return (true);

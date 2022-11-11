@@ -21,7 +21,7 @@ void	testCopy() {
 	for (uint i = 0; i < arrayTey.size(); i++) {
 
 		arrayTey[i] = 42;
-		std::cout << "'" << arrayTey[i];
+		std::cout << "'" << arrayTey[i] << "' ";
 	}
 	std::cout << "\nLet's create a copy called arrayGney!\n";
 	
@@ -29,7 +29,7 @@ void	testCopy() {
 	
 	std::cout << "Let's check what's inside arrayGney => ";
 	for (uint i = 0; i < arrayGney.size(); i++) {
-		std::cout << "'" << arrayGney[i] << "'";
+		std::cout << "'" << arrayGney[i] << "' ";
 	}
 	std::cout << "\nLet's change arrayGney[3] with '24' and compare with arrayTey[3]\n";
 	arrayGney[3] = 24;

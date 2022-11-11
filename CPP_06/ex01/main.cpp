@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:02:54 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/09 09:48:44 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/11 13:37:51 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int	main() {
 	dataPtr = deserialize(raw);
 	std::cout << "data.c = " << data.c << std::endl
 			  << "adress data: " << &data << std::endl
-			  << "deserialize: " << dataPtr << std::endl;
+			  << "serialized: " << raw << std::endl
+			  << "deserialized: " << dataPtr << std::endl;
 }

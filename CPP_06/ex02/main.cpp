@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:49:17 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/09 09:55:13 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/11 14:02:30 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,25 @@ void	identify(Base &base)
 		dynamic_cast<A &>(base);
 		std::cout << BLUE "A by ref\n" RESET;
 	}
-	catch (std::exception &e) {}
+	catch (std::exception &e) { 
+		std::cerr << ORANGE "not A\n" RESET;
+	}
 	
 	try {
 		dynamic_cast<B &>(base);
 		std::cout << BLUE "B by ref\n" RESET;
 	}
-	catch (std::exception &e) {}
+	catch (std::exception &e) { 
+		std::cerr << ORANGE "not B\n" RESET;
+	}
 	
 	try {
 		dynamic_cast<C &>(base);
 		std::cout << BLUE "C by ref\n" RESET;
 	}
-	catch (std::exception &e) {}
+	catch (std::exception &e) { 
+		std::cerr << ORANGE "not C\n" RESET;
+	}
 }
 
 void	identify(Base *p)
