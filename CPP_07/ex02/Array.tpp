@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:19:30 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/10 15:48:20 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/10 22:29:26 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ Array<T> &Array<T>::operator=(Array<T> const &rhs)
    ========================================================================== */
 
 template<typename T>
-char const			*Array<T>::OutOfRangeException::error() const throw() {
+char const			*Array<T>::OutOfRangeException::what() const throw() {
 	return ("\e[0;38;5;166mException: you're out of range! :(\e[0m");
 }
 

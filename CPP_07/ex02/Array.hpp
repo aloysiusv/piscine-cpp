@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:18:45 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/10 14:35:41 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/10 22:30:30 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Array
 		
 		class OutOfRangeException : public std::exception {
 			public:
-				char const *error() const throw();
+				char const *what() const throw();
 		};
 	
 	private:

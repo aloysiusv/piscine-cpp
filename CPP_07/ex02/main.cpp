@@ -34,7 +34,6 @@ void	testCopy() {
 	std::cout << "\nLet's change arrayGney[3] with '24' and compare with arrayTey[3]\n";
 	arrayGney[3] = 24;
 	std::cout << "ARRAYTEY[3] = " << arrayTey[3] << " | " << "ARRAYGNEY[3] = " << arrayGney[3] << std::endl;
-
 }
 
 void	testParam() {
@@ -43,16 +42,16 @@ void	testParam() {
 		Array<int> intArray(3);
 
 		std::cout << "intArray size is: " << intArray.size() << std::endl
-				  << "Let's init [0][1][2] to '9', '87', '6' => ";
+				  << "Let's init [0][1][2] to '9', '87', '6'";
 		intArray[0] = 9;
 		intArray[1] = 87;
 		intArray[2] = 6;
 		std::cout << "\nArray is now = " << intArray[0] << " " << intArray[1] << " " << intArray[2] << std::endl
-		          << "Now let's try to access intArray[3]...\n";
-		std::cout << "intArray[3] = " << intArray[3] << std::endl;
+		          << "Now let's try to access intArray[3]...\n" 
+				  << intArray[3] << std::endl;
 	}
 	catch (std::exception &e) {
-		std::cerr << "Tried to access intArray[3]:" << e.what() << std::endl;
+		std::cerr << "Tried to access intArray[3]: " << e.what() << std::endl;
 	}
 }
 

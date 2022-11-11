@@ -6,7 +6,7 @@
 #    By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 16:42:54 by lrandria          #+#    #+#              #
-#    Updated: 2022/11/10 14:40:42 by lrandria         ###   ########.fr        #
+#    Updated: 2022/11/10 21:50:58 by lrandria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		= Array
 
 CC			= c++
 
-FLAGS		= -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 HDR			= colours.h \
 			  Array.tpp	\

@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:35:19 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/10 20:09:52 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/10 22:43:50 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 
 template <typename T>
 void	addFive(T &arr) {
-	// static_cast<double>(arr);
 	arr += 5;
 }
 
