@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 22:46:31 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/12 18:58:51 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/12 19:01:06 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typename T::const_iterator	easyfind(T const &container, int const n) {
 }
 
 template<typename T>
-void displayVector(T const container) {
+void displayContainer(T const container) {
 
 	std::cout << "Vector content is: ";
 	for (uint i = 0; i < (uint)container.size(); i++) {

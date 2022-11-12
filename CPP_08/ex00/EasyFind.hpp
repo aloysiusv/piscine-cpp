@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:13:14 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/12 18:53:42 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/12 19:01:07 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ template<typename T>
 typename T::const_iterator	easyfind(T const &container, int const n);
 
 template<typename T>
-void	displayVector(T const container);
+void	displayContainer(T const container);
 
 class	NotFoundException : public std::exception {
 	public:
