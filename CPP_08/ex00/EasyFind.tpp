@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 22:46:31 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/11 13:09:08 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:58:51 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,28 @@
 
 # include "EasyFind.hpp"
 
-class	NotFoundException : public std::exception {
-
+char const	*NotFoundException::what() const throw() {
+	return ("\e[0;38;5;166mexception: element not found\e[0m");
+}
 
 template<typename T>
-typename T::const_iterator	easyfind(T const &container, int const n)
-{
+typename T::const_iterator	easyfind(T const &container, int const n) {
+
 	typename T::const_iterator i;
 	 
 	if ((i = find(container.begin(), container.end(), n)) == container.end())
-		throw ElementNotFoundException() ;
+		throw NotFoundException() ;
 	return (i);
+}
+
+template<typename T>
+void displayVector(T const container) {
+
+	std::cout << "Vector content is: ";
+	for (uint i = 0; i < (uint)container.size(); i++) {
+		std::cout << "[" << container.at(i) << "] ";
+	}
+	std::cout << std::endl;
 }
 
 #endif
