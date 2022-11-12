@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:18:25 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/12 21:59:53 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/12 23:08:52 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class Span {
 		int					shortestSpan() const;
 		int					longestSpan() const;
 		void				addNumber(int num);
-		void				addRandNumbers(int range);
 		void				addSpecNumbers(std::vector<int> vector);
+		void				addRange(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
 		void				displayContainer();
 	
 		class	IsFullException : public std::exception {
@@ -50,7 +50,6 @@ class Span {
 	private:
 		uint				_n;
 		std::vector<int>	_container;
-
 };
 
 #endif

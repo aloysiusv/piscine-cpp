@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:20:19 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/12 22:43:26 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/12 23:17:47 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ const char *Span::NoValidDistanceException::what() const throw() {
 }
 
 const char *Span::InvalidRangeException::what() const throw() {
-	return ("\e[0;38;5;166mException: range is not a valid number! :(\e[0m");
+	return ("\e[0;38;5;166mException: range is invalid! :(\e[0m");
 }
 
 /* ==========================================================================
@@ -70,13 +70,15 @@ void	Span::addNumber(int num) {
 	_container.push_back(num);
 }
 
-void	Span::addRandNumbers(int range) {
+void	Span::addRange(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end) {
 
-	if (range <= 0)
+	int	nbElem = end - begin;
+	int	availableSpace = _n - _container.size();
+
+	if (nbElem > availableSpace)
 		throw Span::InvalidRangeException();
 	srand(time(NULL));
-	for (int i = 0; i < range; i++)
-		addNumber(rand());
+	_container.insert(this->_container.end(), begin, end);
 }
 
 void	Span::addSpecNumbers(std::vector<int> vector) {

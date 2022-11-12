@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:31:51 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/12 22:10:36 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/12 23:18:09 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,13 @@ void	testSpecNum() {
 
 void	testRandNum() {
 
-	Span sp = Span(5);
+	Span 				sp = Span(20000);
+	std::vector<int>	test;
 
-	sp.addRandNumbers(5);
-	sp.displayContainer();
+	srand(time(NULL));
+	for (uint i = 0; i < 20000; i++)
+		test.push_back(rand());
+	sp.addRange(test.begin(), test.end());
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 }
