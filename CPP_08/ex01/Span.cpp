@@ -6,25 +6,25 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:20:19 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/10 15:31:44 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/12 22:43:26 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
 /* ==========================================================================
-								COPLIEN AFORM 
+								COPLIEN FORM 
    ========================================================================== */
 
 Span::Span() : _n(0), _container() {
 	std::cout << BLUE "Span default constructor called!\n" RESET;
 }
 
-Span::Span(unsigned int N) : _n(N), _container() {
+Span::Span(uint n) : _n(n), _container() {
 	std::cout << BLUE "Span parameterised constructor called!\n" RESET;
 }
 
-Span::Span( const Span & src ) : _n(src._n), _container() {
+Span::Span(const Span &src) : _n(src._n), _container() {
 	
 	std::cout << BLUE "Span copy constructor called!\n" RESET;
 	*this = src;
@@ -33,7 +33,6 @@ Span::Span( const Span & src ) : _n(src._n), _container() {
 Span::~Span() {
 	std::cout << RED "Span destructor called!\n" RESET;
 }
-
 
 Span &Span::operator=(Span const &rhs) {
 	
@@ -48,59 +47,80 @@ Span &Span::operator=(Span const &rhs) {
 								EXCEPTIONS 
    ========================================================================== */
 
-const char *Span::NumberException::what() const throw() {
-	return ("\e[0;38;5;166mException: couldn't calculate span! :(\e[0m\n");
+const char *Span::IsFullException::what() const throw() {
+	return ("\e[0;38;5;166mException: it is at full capacity! :(\e[0m");
 }
 
-const char *Span::CantAddMoreException::what() const throw() {
-	return ("\e[0;38;5;166mException: it is at full capacity! :(\e[0m");
+const char *Span::NoValidDistanceException::what() const throw() {
+	return ("\e[0;38;5;166mException: couldn't calculate span! :(\e[0m");
+}
+
+const char *Span::InvalidRangeException::what() const throw() {
+	return ("\e[0;38;5;166mException: range is not a valid number! :(\e[0m");
 }
 
 /* ==========================================================================
 								MEMBER FUNCTIONS 
    ========================================================================== */
 
-void	Span::addNumber(int nbr)
-{
+void	Span::addNumber(int num) {
+
 	if (_container.size() >= _n)
-		throw Span::CantAddMoreException();
-	_container.push_back(nbr);
+		throw Span::IsFullException();
+	_container.push_back(num);
 }
 
-int	Span::shortestSpan(void) const
-{
-	size_t i;
-	std::vector<int> tmp = _container;
+void	Span::addRandNumbers(int range) {
 
-	if(_container.size() <= 1)
-		throw NumberException();
-	sort(tmp.begin(), tmp.end());
-	
-	int j = tmp[1] - tmp[0];
-	
-	for(i = 0; i + 1 < tmp.size(); ++i)
-		if (tmp[i + 1] - tmp[i] < j)
-			j = std::abs(tmp[i + 1] - tmp[i]);
-	return (j);
+	if (range <= 0)
+		throw Span::InvalidRangeException();
+	srand(time(NULL));
+	for (int i = 0; i < range; i++)
+		addNumber(rand());
 }
 
-void	Span::addSpan(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end)
-{
-	if (static_cast<unsigned int>(end - begin) > (_n - _container.size()))
-		throw Span::CantAddMoreException();
-	else 
-		_container.insert(_container.end(), begin, end);
+void	Span::addSpecNumbers(std::vector<int> vector) {
+
+	for (uint i = 0; i < vector.size(); i++)
+		addNumber(vector[i]);
 }
 
-int Span::longestSpan(void) const
-{
-	std::vector<int>::const_iterator i;
-	std::vector<int>::const_iterator j;
+void	Span::displayContainer() {
 
-	if(_container.size() <= 1)
-		throw NumberException();
-	i = std::min_element(_container.begin(), _container.end());
-	j = std::max_element(_container.begin(), _container.end());
+	std::cout << "VECTOR CONTENT => ";
+	for (size_t i = 0; i < _container.size(); i++)
+		std::cout << "[" <<_container[i] << "] ";
+	std::cout << std::endl << std::endl;
+}
 
-	return (*j - *i);
+int		Span::shortestSpan() const {
+
+	std::vector<int>	cpy = _container;
+	size_t				i;
+	int					shortest;
+
+	if (_container.size() < 2)
+		throw NoValidDistanceException();
+	sort(cpy.begin(), cpy.end());
+	i = 0;
+	shortest = cpy[i + 1] - cpy[i];
+	for (; i < _container.size() - 1; i++)
+		shortest = std::min(shortest, (cpy[i + 1] - cpy[i]));
+	std::cout << "Shortest span is: ";
+	return (shortest);
+}
+
+int 	Span::longestSpan() const {
+
+	int	min;
+	int	max;
+
+	if(_container.size() < 2)
+		throw NoValidDistanceException();
+	else {
+		min = *min_element(_container.begin(), _container.end());
+		max = *max_element(_container.begin(), _container.end());
+	}
+	std::cout << "Longest span is: ";
+	return (max - min);
 }

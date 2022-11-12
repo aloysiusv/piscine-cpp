@@ -6,7 +6,7 @@
 /*   By: lrandria <lrandria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:18:25 by lrandria          #+#    #+#             */
-/*   Updated: 2022/11/10 15:26:56 by lrandria         ###   ########.fr       */
+/*   Updated: 2022/11/12 21:59:53 by lrandria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,38 @@
 # include <string>
 # include <vector>
 # include <algorithm>
+# include <bits/stdc++.h>
 # include "colours.h"
 
-class Span
-{
+class Span {
 
 	public:
 		Span();
-		Span(unsigned int N = 0);
+		Span(uint n);
 		Span(Span const &src);
 		~Span();
 
-		Span &				operator=(Span const &rhs);
+		Span				&operator=(Span const &rhs);
 		
 		int					shortestSpan() const;
 		int					longestSpan() const;
-		void				addSpan(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
 		void				addNumber(int num);
+		void				addRandNumbers(int range);
+		void				addSpecNumbers(std::vector<int> vector);
+		void				displayContainer();
+	
+		class	IsFullException : public std::exception {
+			const char*	what() const throw();
+		};
+		class	NoValidDistanceException : public std::exception {
+			const char*	what() const throw();
+		};
+		class	InvalidRangeException : public std::exception {
+			const char*	what() const throw();
+		};
 
-		class	CantAddMoreException : public std::exception {
-			const char*	what() const throw();
-		};
-		class	NumberException : public std::exception {
-			const char*	what() const throw();
-		};
-		
-		
 	private:
-		unsigned int		_n;
+		uint				_n;
 		std::vector<int>	_container;
 
 };
